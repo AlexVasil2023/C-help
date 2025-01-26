@@ -22,20 +22,6 @@
             }
           },
           {
-            "id": "1890f58c0538e556",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Qt class/Graph.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Graph"
-            }
-          },
-          {
             "id": "e8c1191acdfb9eaa",
             "type": "leaf",
             "state": {
@@ -50,20 +36,21 @@
             }
           },
           {
-            "id": "8aaa67e5a2f70f5d",
+            "id": "b79aee498e96aa8b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Parallel Programming/Модификации и обобщения генераторов.md",
+                "file": "Parallel Programming/Способы управления заданиями.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Модификации и обобщения генераторов"
+              "title": "Способы управления заданиями"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -216,11 +203,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c50a6b3254a54067",
+  "active": "b79aee498e96aa8b",
   "lastOpenFiles": [
-    "Parallel Programming/Модификации и обобщения генераторов.md",
     "Содержание.md",
     "Parallel Programming/Parallel programming.md",
+    "Parallel Programming/Способы управления заданиями.md",
+    "Parallel Programming/Модификации и обобщения генераторов.md",
+    "image/ParallelProg_188.png",
+    "image/ParallelProg_187.png",
+    "image/ParallelProg_186.png",
+    "Qt class/Graph.md",
+    "image/ParallelProg_185.png",
     "image/ParallelProg_184.png",
     "image/ParallelProg_183.png",
     "Parallel Programming/Вариации на тему фьючерсов.md",
@@ -228,11 +221,7 @@
     "image/ParallelProg_181.png",
     "image/ParallelProg_180.png",
     "image/ParallelProg_179.png",
-    "image/ParallelProg_178.png",
     "Parallel Programming/Быстрая синхронизация потоков.md",
-    "image/ParallelProg_177.png",
-    "image/ParallelProg_176.png",
-    "image/ParallelProg_175.png",
     "Parallel Programming/оптимизация с использованием CppMem.md",
     "Parallel Programming/Потокобезопасное создание объекта-одиночки.md",
     "Parallel Programming/Thread_Safe initialization.md",
@@ -240,7 +229,6 @@
     "book/Bansila_Reshenie-zadach-na-sovremennom-C-_RuLit_Me_720098.pdf",
     "book/Хорошо ли вы знаете C++.pdf",
     "Parallel Programming/Вычисление суммы элементов вектора.md",
-    "Qt class/Graph.md",
     "STL/variant.md",
     "Parallel STL/any.md",
     "Qt class/QFont.md",
