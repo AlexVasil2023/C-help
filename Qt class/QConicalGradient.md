@@ -1,0 +1,12 @@
+
+
+# QConicalGradient
+#QConicalGradient
+
+
+
+
+
+
+
+

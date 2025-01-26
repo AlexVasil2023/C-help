@@ -1,0 +1,14 @@
+/book/*.pdf
+/book/----/*.rar
+/book/*.rar
+/book/CMake/*.rar
+/book/Git/*.rar
+/book/Qt/*.rar
+/book/Qt/*.pdf
+/book/*.djvu
+/book/Стенли Липпман/*.rar
+/book/Стенли Липпман/*.djvu
+/book/Страуструп Бьярне/*.rar
+/book/Тестирование/*.rar
+/book/Язык программирования C++ (6-е издание) + Code \[2012\] Стивен Прата/*.rar
+*.pdf

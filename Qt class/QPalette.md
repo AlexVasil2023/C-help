@@ -1,0 +1,18 @@
+# QPalette
+#QPalette
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

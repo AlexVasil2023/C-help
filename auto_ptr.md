@@ -1,0 +1,5 @@
+std::auto_ptr
+
+
+
+

@@ -1,0 +1,19 @@
+# qmlRegisterType
+#qmlRegisterType
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
