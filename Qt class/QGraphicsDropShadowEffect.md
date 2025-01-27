@@ -1,0 +1,8 @@
+
+# Тень (QGraphicsDropShadowEffect)
+
+
+
+
+
+

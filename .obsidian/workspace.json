@@ -50,7 +50,7 @@
             }
           },
           {
-            "id": "849e1f5ce7bf8111",
+            "id": "09a2f812a58d010e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -217,12 +217,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "849e1f5ce7bf8111",
+  "active": "09a2f812a58d010e",
   "lastOpenFiles": [
     "Содержание.md",
-    "executor.md",
     "Parallel Programming/Parallel programming.md",
     "Parallel Programming/Будущее языка.md",
+    "executor.md",
+    "Parallel Programming/Первые примеры.md",
     "Parallel Programming/task.md",
     "Parallel Programming/Особенности сопрограмм.md",
     "Parallel Programming/Latch_and_Barrier.md",
@@ -257,7 +258,6 @@
     "Qt class/QFontDatabase.md",
     "QFontDatabase.md",
     "Qt class/QPolygon.md",
-    "Qt class/QRect.md",
     "Parallel STL",
     "STL",
     "book/Алгоритмы/Павлов_Л_,_Первова_Н_Структуры_и_алгоритмы_обработки_данных_2020.pdf",

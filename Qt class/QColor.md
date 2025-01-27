@@ -288,10 +288,3 @@ QColor toHsv() const
 QColor toHsl() const
 ```
 
-
-
-
-
-
-
-

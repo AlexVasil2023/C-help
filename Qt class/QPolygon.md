@@ -1,4 +1,7 @@
 
+[[#Класс QPolygon многоугольник]]
+[[#QPolygonF]]
+
 # Класс QPolygon: многоугольник
 
 Класс `QPolygon` описывает координаты вершин многоугольника. Форматы конструктора класса:
@@ -49,4 +52,7 @@ void point(int index, int *x, int *y) const
 ```c++
 QRect boundingRect() const
 ```
+
+# QPolygonF
+#QPolygonF
 
