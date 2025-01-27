@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -217,12 +217,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "68a882c1edccf5eb",
+  "active": "29a659ff22ddddc0",
   "lastOpenFiles": [
+    "Parallel Programming/Будущее языка.md",
     "Parallel Programming/Parallel programming.md",
     "Parallel Programming/executor.md",
     "Содержание.md",
-    "Parallel Programming/Будущее языка.md",
     "Parallel Programming/Расширенные фьючерсы.md",
     "executor.md",
     "image/ParallelProg_192.png",
