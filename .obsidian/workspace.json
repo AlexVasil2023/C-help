@@ -63,7 +63,8 @@
               "title": "Расширенные фьючерсы"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -216,12 +217,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c50a6b3254a54067",
+  "active": "68a882c1edccf5eb",
   "lastOpenFiles": [
     "Parallel Programming/Parallel programming.md",
+    "Parallel Programming/executor.md",
+    "Содержание.md",
     "Parallel Programming/Будущее языка.md",
     "Parallel Programming/Расширенные фьючерсы.md",
-    "Содержание.md",
     "executor.md",
     "image/ParallelProg_192.png",
     "Parallel Programming/Первые примеры.md",
@@ -256,7 +258,6 @@
     "Qt class/QFont.md",
     "Qt class/QFontMetrics.md",
     "Qt class/QFontDatabase.md",
-    "QFontDatabase.md",
     "Parallel STL",
     "STL",
     "book/Алгоритмы/Павлов_Л_,_Первова_Н_Структуры_и_алгоритмы_обработки_данных_2020.pdf",
