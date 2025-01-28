@@ -2,7 +2,11 @@
 [[#QGraphicsEffect]]
 1. [[#Класс QGraphicsEffect|Класс QGraphicsEffect]] 9.6.1
 2. [[#Тень (QGraphicsDropShadowEffect)|Тень (QGraphicsDropShadowEffect)]] 9.6.2
-3. 
+3. [[#Размытие (QGraphicsBlurEffect)|Размытие (QGraphicsBlurEffect)]] 9.6.3
+4. [[#Изменение цвета (QGraphicsColorizeEffect)|Изменение цвета (QGraphicsColorizeEffect)]] 9.6.4
+5. [[#Изменение прозрачности (QGraphicsOpacityEffect)|Изменение прозрачности (QGraphicsOpacityEffect)]] 9.6.5
+6. 
+7. 
 
 # QGraphicsEffect
 
@@ -62,14 +66,15 @@ void update()
 
 см. [[QGraphicsDropShadowEffect|Тень (QGraphicsDropShadowEffect)]]
 
+## Размытие (QGraphicsBlurEffect)
 
+см. [[QGraphicsBlurEffect#Размытие(QGraphicsBlurEffect)|Размытие(QGraphicsBlurEffect)]]
 
+## Изменение цвета (QGraphicsColorizeEffect)
 
+см. [[QGraphicsColorizeEffect#Изменение цвета (QGraphicsColorizeEffect)|Изменение цвета (QGraphicsColorizeEffect)]]
 
+##  Изменение прозрачности (QGraphicsOpacityEffect)
 
-
-
-
-
-
+см. [[QGraphicsOpacityEffect#Изменение прозрачности (QGraphicsOpacityEffect)|Изменение прозрачности (QGraphicsOpacityEffect)]]
 
