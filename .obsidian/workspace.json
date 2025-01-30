@@ -34,37 +34,8 @@
               "icon": "lucide-file",
               "title": "Parallel programming"
             }
-          },
-          {
-            "id": "68a882c1edccf5eb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Parallel Programming/Будущее языка.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Будущее языка"
-            }
-          },
-          {
-            "id": "bbe52e997beaae8d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Parallel Programming/Транзакционная память.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Транзакционная память"
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -218,11 +189,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "bbe52e997beaae8d",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
-    "Содержание.md",
     "Parallel Programming/Parallel programming.md",
     "Parallel Programming/Будущее языка.md",
+    "Parallel Programming/Будущая Библиотека для векторных вычислений.md",
+    "Содержание.md",
+    "Parallel Programming/simd.md",
+    "Parallel Programming/Будущие Блоки заданий.md",
+    "image/ParallelProg_210.png",
+    "Parallel Programming/Будущие Блоки заданий.txt",
     "Parallel Programming/Транзакционная память.md",
     "image/ParallelProg_195.png",
     "image/ParallelProg_194.png",
@@ -245,7 +221,6 @@
     "Parallel Programming/Модификации и обобщения генераторов.md",
     "image/ParallelProg_188.png",
     "image/ParallelProg_187.png",
-    "image/ParallelProg_186.png",
     "Qt class/Graph.md",
     "Parallel Programming/Вариации на тему фьючерсов.md",
     "Parallel Programming/оптимизация с использованием CppMem.md",
@@ -256,14 +231,11 @@
     "book/Хорошо ли вы знаете C++.pdf",
     "Parallel Programming/Вычисление суммы элементов вектора.md",
     "STL/variant.md",
-    "Parallel STL/any.md",
-    "Qt class/QFont.md",
     "Parallel STL",
     "STL",
     "book/Алгоритмы/Павлов_Л_,_Первова_Н_Структуры_и_алгоритмы_обработки_данных_2020.pdf",
     "book/Алгоритмы/Алгоритмы с нуля.pdf",
     "book/Алгоритмы/Kleynberg_Dzh_Tardos_E_Algoritmy_Razrabotka_i_primenenie_Klassika.pdf",
-    "book/Алгоритмы",
-    "book/Extremalnoe_programmirovanie_Razrabotka_cherez_testirovanie_2017.pdf"
+    "book/Алгоритмы"
   ]
 }
