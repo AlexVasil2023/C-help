@@ -49,8 +49,7 @@
               "title": "Шаблоны синхронизации. Управление общим доступом"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -204,14 +203,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0575fa2eb5aa8281",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
-    "image/ParallelProg_206.png",
-    "image/ParallelProg_205.png",
-    "decay.md",
     "Parallel Programming/Шаблоны синхронизации. Управление общим доступом.md",
     "Содержание.md",
     "Parallel Programming/Parallel programming.md",
+    "image/ParallelProg_207.png",
+    "image/ParallelProg_206.png",
+    "image/ParallelProg_205.png",
+    "decay.md",
     "image/ParallelProg_204.png",
     "Parallel Programming/Шаблоны и эмпирические правила.md",
     "Parallel Programming/Шаблоны и эмпирические правила.ьв",
@@ -238,8 +238,6 @@
     "Parallel Programming/Быстрая синхронизация потоков.md",
     "Parallel Programming/Способы управления заданиями.md",
     "image/ParallelProg_191.png",
-    "image/ParallelProg_190.png",
-    "image/ParallelProg_189.png",
     "Parallel Programming/Модификации и обобщения генераторов.md",
     "Qt class/Graph.md",
     "Parallel Programming/Вариации на тему фьючерсов.md",
