@@ -36,20 +36,21 @@
             }
           },
           {
-            "id": "0575fa2eb5aa8281",
+            "id": "80792db8557879f5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Parallel Programming/Шаблоны синхронизации. Управление общим доступом.md",
+                "file": "Parallel Programming/Управление изменяемым состоянием.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Шаблоны синхронизации. Управление общим доступом"
+              "title": "Управление изменяемым состоянием"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -203,17 +204,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c50a6b3254a54067",
+  "active": "80792db8557879f5",
   "lastOpenFiles": [
-    "Meyers Effective modern c++/Познакомьтесь с случаями некорректной работы прямой передачи.md",
     "Содержание.md",
+    "Parallel Programming/Parallel programming.md",
+    "Parallel Programming/Управление изменяемым состоянием.md",
+    "image/ParallelProg_211.png",
+    "image/ParallelProg_209.png",
+    "image/ParallelProg_208.png",
+    "Parallel Programming/Шаблоны синхронизации. Управление общим доступом.md",
+    "Meyers Effective modern c++/Познакомьтесь с случаями некорректной работы прямой передачи.md",
     "Meyers Effective modern c++/auto.md",
     "Условные операторы с инициализацией.md",
     "Списки инициализации.md",
     "STL/initializer_list.md",
     "Meyers Effective modern c++/Переход к c++11, c++14.md",
-    "Parallel Programming/Шаблоны синхронизации. Управление общим доступом.md",
-    "Parallel Programming/Parallel programming.md",
     "image/ParallelProg_207.png",
     "image/ParallelProg_206.png",
     "image/ParallelProg_205.png",
@@ -231,18 +236,13 @@
     "image/ParallelProg_195.png",
     "image/ParallelProg_194.png",
     "Parallel Programming/Расширенные фьючерсы.md",
-    "image/ParallelProg_193.png",
     "Parallel Programming/executor.md",
     "executor.md",
-    "image/ParallelProg_192.png",
     "Parallel Programming/Первые примеры.md",
     "Parallel Programming/task.md",
     "Parallel Programming/Особенности сопрограмм.md",
     "Parallel Programming/Latch_and_Barrier.md",
     "Parallel Programming/barrier.md",
-    "latch.md",
-    "Parallel Programming/Быстрая синхронизация потоков.md",
-    "image/ParallelProg_191.png",
     "book/C_i_C_v_zadachakh_i_primerakh_2019_Nikita_Kultin.pdf",
     "book/Bansila_Reshenie-zadach-na-sovremennom-C-_RuLit_Me_720098.pdf",
     "book/Хорошо ли вы знаете C++.pdf",
