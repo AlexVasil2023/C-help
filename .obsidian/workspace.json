@@ -63,8 +63,7 @@
               "title": "шаблон Объект-монитор"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -218,12 +217,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4b400de3775b93ea",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
+    "Parallel Programming/шаблон Объект-монитор.md",
     "Содержание.md",
     "Parallel Programming/Parallel programming.md",
     "Parallel Programming/Шаблоны параллельной архитектуры.md",
-    "Parallel Programming/шаблон Объект-монитор.md",
+    "image/ParallelProg_219.png",
     "Parallel Programming/Шаблон Активный объект.md",
     "example/syscpp-master.zip",
     "example",
@@ -239,7 +239,6 @@
     "image/ParallelProg_212.png",
     "image/ParallelProg_211.png",
     "image/ParallelProg_209.png",
-    "image/ParallelProg_208.png",
     "Parallel Programming/Шаблоны синхронизации. Управление общим доступом.md",
     "Meyers Effective modern c++/Познакомьтесь с случаями некорректной работы прямой передачи.md",
     "Meyers Effective modern c++/auto.md",
