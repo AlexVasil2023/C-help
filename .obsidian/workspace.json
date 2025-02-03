@@ -36,7 +36,7 @@
             }
           },
           {
-            "id": "4b400de3775b93ea",
+            "id": "f4ed859a72a962ff",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -50,7 +50,7 @@
             }
           },
           {
-            "id": "0c03c375cad08b6b",
+            "id": "4b400de3775b93ea",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -218,14 +218,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0c03c375cad08b6b",
+  "active": "4b400de3775b93ea",
   "lastOpenFiles": [
     "Содержание.md",
     "Parallel Programming/Parallel programming.md",
     "Parallel Programming/Шаблоны параллельной архитектуры.md",
     "Parallel Programming/шаблон Объект-монитор.md",
-    "Parallel Programming/шаблон Объект-монитор.txt",
     "Parallel Programming/Шаблон Активный объект.md",
+    "example/syscpp-master.zip",
+    "example",
+    "Parallel Programming/шаблон Объект-монитор.txt",
     "image/ParallelProg_218.png",
     "image/ParallelProg_217.png",
     "image/ParallelProg_216.png",
@@ -258,13 +260,10 @@
     "Parallel Programming/executor.md",
     "executor.md",
     "Parallel Programming/Первые примеры.md",
-    "Parallel Programming/task.md",
     "book/C_i_C_v_zadachakh_i_primerakh_2019_Nikita_Kultin.pdf",
     "book/Bansila_Reshenie-zadach-na-sovremennom-C-_RuLit_Me_720098.pdf",
     "book/Хорошо ли вы знаете C++.pdf",
     "Parallel STL",
-    "STL",
-    "book/Алгоритмы/Павлов_Л_,_Первова_Н_Структуры_и_алгоритмы_обработки_данных_2020.pdf",
-    "book/Алгоритмы/Алгоритмы с нуля.pdf"
+    "STL"
   ]
 }
