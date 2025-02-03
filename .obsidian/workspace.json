@@ -36,17 +36,17 @@
             }
           },
           {
-            "id": "80792db8557879f5",
+            "id": "4b400de3775b93ea",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Parallel Programming/Управление изменяемым состоянием.md",
+                "file": "Parallel Programming/Шаблоны параллельной архитектуры.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Управление изменяемым состоянием"
+              "title": "Шаблоны параллельной архитектуры"
             }
           }
         ],
@@ -204,11 +204,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "80792db8557879f5",
+  "active": "4b400de3775b93ea",
   "lastOpenFiles": [
     "Содержание.md",
-    "Parallel Programming/Управление изменяемым состоянием.md",
     "Parallel Programming/Parallel programming.md",
+    "Parallel Programming/Шаблоны параллельной архитектуры.md",
+    "Parallel Programming/Управление изменяемым состоянием.md",
+    "image/ParallelProg_215.png",
     "image/ParallelProg_214.png",
     "image/ParallelProg_213.png",
     "Parallel Programming/mutex.md",
@@ -227,7 +229,6 @@
     "image/ParallelProg_206.png",
     "image/ParallelProg_205.png",
     "decay.md",
-    "image/ParallelProg_204.png",
     "Parallel Programming/Шаблоны и эмпирические правила.md",
     "Parallel Programming/Шаблоны и эмпирические правила.ьв",
     "Parallel Programming/Будущее языка.md",
