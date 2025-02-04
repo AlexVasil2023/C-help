@@ -63,7 +63,8 @@
               "title": "шаблон Объект-монитор"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -217,10 +218,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c50a6b3254a54067",
+  "active": "4b400de3775b93ea",
   "lastOpenFiles": [
-    "Parallel Programming/шаблон Объект-монитор.md",
     "Содержание.md",
+    "Parallel Programming/шаблон Объект-монитор.md",
     "Parallel Programming/Parallel programming.md",
     "Parallel Programming/Шаблоны параллельной архитектуры.md",
     "image/ParallelProg_219.png",
