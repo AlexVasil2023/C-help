@@ -50,17 +50,17 @@
             }
           },
           {
-            "id": "4b400de3775b93ea",
+            "id": "be38f6bb5fd6bf4f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Parallel Programming/шаблон Объект-монитор.md",
+                "file": "Parallel Programming/Шаблон Полусинхронная архитектура.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "шаблон Объект-монитор"
+              "title": "Шаблон Полусинхронная архитектура"
             }
           }
         ],
@@ -218,12 +218,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4b400de3775b93ea",
+  "active": "be38f6bb5fd6bf4f",
   "lastOpenFiles": [
+    "image/ParallelProg_221.png",
     "Содержание.md",
-    "Parallel Programming/шаблон Объект-монитор.md",
-    "Parallel Programming/Parallel programming.md",
+    "Parallel Programming/Шаблон Полусинхронная архитектура.md",
     "Parallel Programming/Шаблоны параллельной архитектуры.md",
+    "Parallel Programming/Parallel programming.md",
+    "Parallel Programming/Шаблон Полусинхронная архитектура.ьв",
+    "Parallel Programming/шаблон Объект-монитор.md",
+    "image/ParallelProg_220.png",
     "image/ParallelProg_219.png",
     "Parallel Programming/Шаблон Активный объект.md",
     "example/syscpp-master.zip",
@@ -239,7 +243,6 @@
     "Parallel Programming/mutex.md",
     "image/ParallelProg_212.png",
     "image/ParallelProg_211.png",
-    "image/ParallelProg_209.png",
     "Parallel Programming/Шаблоны синхронизации. Управление общим доступом.md",
     "Meyers Effective modern c++/Познакомьтесь с случаями некорректной работы прямой передачи.md",
     "Meyers Effective modern c++/auto.md",
@@ -259,11 +262,9 @@
     "Parallel Programming/Расширенные фьючерсы.md",
     "Parallel Programming/executor.md",
     "executor.md",
-    "Parallel Programming/Первые примеры.md",
     "book/C_i_C_v_zadachakh_i_primerakh_2019_Nikita_Kultin.pdf",
     "book/Bansila_Reshenie-zadach-na-sovremennom-C-_RuLit_Me_720098.pdf",
     "book/Хорошо ли вы знаете C++.pdf",
-    "Parallel STL",
-    "STL"
+    "Parallel STL"
   ]
 }
