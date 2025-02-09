@@ -49,8 +49,7 @@
               "title": "Структуры данных с блокировками"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -204,11 +203,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "918df225109a21de",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
+    "Структуры данных с блокировками.md",
     "Содержание.md",
     "Parallel Programming/Parallel programming.md",
-    "Структуры данных с блокировками.md",
     "image/ParallelProg_245.png",
     "image/ParallelProg_244.png",
     "image/ParallelProg_243.png",
