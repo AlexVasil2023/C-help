@@ -36,17 +36,17 @@
             }
           },
           {
-            "id": "62661f444f7ad577",
+            "id": "840873641c3b5e7a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Parallel Programming/Общие правила.md",
+                "file": "Parallel Programming/Работа с потоками.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Общие правила"
+              "title": "Работа с потоками"
             }
           }
         ],
@@ -204,11 +204,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "62661f444f7ad577",
+  "active": "840873641c3b5e7a",
   "lastOpenFiles": [
     "Содержание.md",
-    "Parallel Programming/Общие правила.md",
     "Parallel Programming/Parallel programming.md",
+    "Parallel Programming/Работа с потоками.md",
+    "Parallel Programming/thread.md",
+    "image/ParallelProg_230.png",
+    "image/ParallelProg_229.png",
+    "Parallel Programming/Общие правила.md",
+    "image/ParallelProg_228.png",
     "image/ParallelProg_227.png",
     "STL/default.md",
     "Parallel Programming/Thread_Safe initialization.md",
@@ -223,13 +228,10 @@
     "image/ParallelProg_221.png",
     "Parallel Programming/Шаблон Полусинхронная архитектура.ьв",
     "Parallel Programming/шаблон Объект-монитор.md",
-    "image/ParallelProg_220.png",
-    "image/ParallelProg_219.png",
     "Parallel Programming/Шаблон Активный объект.md",
     "example/syscpp-master.zip",
     "example",
     "Parallel Programming/шаблон Объект-монитор.txt",
-    "image/ParallelProg_218.png",
     "Parallel Programming/Управление изменяемым состоянием.md",
     "Parallel Programming/mutex.md",
     "Parallel Programming/Шаблоны синхронизации. Управление общим доступом.md",
@@ -245,7 +247,6 @@
     "Parallel Programming/Будущее языка.md",
     "Parallel Programming/Будущая Библиотека для векторных вычислений.md",
     "Parallel Programming/simd.md",
-    "Parallel Programming/Будущие Блоки заданий.md",
     "Parallel Programming/Будущие Блоки заданий.txt",
     "book/C_i_C_v_zadachakh_i_primerakh_2019_Nikita_Kultin.pdf",
     "book/Bansila_Reshenie-zadach-na-sovremennom-C-_RuLit_Me_720098.pdf",
