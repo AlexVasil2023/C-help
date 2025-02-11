@@ -49,8 +49,7 @@
               "title": "Потокобезопасная очередь"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -204,11 +203,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0d32501e4da9ba15",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
+    "Parallel Programming/Потокобезопасная очередь.md",
     "Содержание.md",
     "Parallel Programming/Parallel programming.md",
-    "Parallel Programming/Потокобезопасная очередь.md",
+    "image/ParallelProg_254.png",
+    "image/ParallelProg_253.png",
+    "image/ParallelProg_252.png",
+    "image/ParallelProg_251.png",
     "image/ParallelProg_250.png",
     "image/ParallelProg_249.png",
     "Parallel Programming/Потокобезопасный стек.md",
@@ -219,10 +222,6 @@
     "image/ParallelProg_246.png",
     "Структуры данных с блокировками.md",
     "image/ParallelProg_245.png",
-    "image/ParallelProg_244.png",
-    "image/ParallelProg_243.png",
-    "image/ParallelProg_242.png",
-    "image/ParallelProg_241.png",
     "Parallel Programming/mutex.md",
     "Parallel Programming/Структуры данных\nс блокировками.md",
     "Parallel Programming/Модель памяти.md",
