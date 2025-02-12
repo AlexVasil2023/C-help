@@ -49,8 +49,7 @@
               "title": "Библиотека для работы со временем"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -204,11 +203,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9775875b732aed48",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
-    "Содержание.md",
     "Parallel Programming/Parallel programming.md",
     "Parallel Programming/Библиотека для работы со временем.md",
+    "image/time_4.png",
+    "Содержание.md",
+    "image/time_3.png",
     "image/time_2.png",
     "image/time_1.png",
     "Parallel Programming/asctime.md",
@@ -221,8 +222,6 @@
     "image/ParallelProg_253.png",
     "image/ParallelProg_252.png",
     "image/ParallelProg_251.png",
-    "image/ParallelProg_250.png",
-    "image/ParallelProg_249.png",
     "Parallel Programming/Потокобезопасный стек.md",
     "stack.md",
     "Parallel Programming/Структуры данных с блокировками.md",
