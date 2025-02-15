@@ -49,8 +49,7 @@
               "title": "Шаблоны функций"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -157,7 +156,9 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Теги"
@@ -204,12 +205,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c2aab2957335e13b",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
-    "Содержание.md",
     "template/templates.md",
-    "Вывод аргументов для шаблонов классов.md",
     "template/Шаблоны функций.md",
+    "Meyers Effective modern c++/auto.md",
+    "Meyers Effective modern c++/Вывод типа auto.md",
+    "Содержание.md",
+    "Шаблоны с переменным числом аргументов.md",
+    "Шаблоны переменных.md",
+    "Вывод аргументов для шаблонов классов.md",
     "Шаблоны.md",
     "image/templ_1.png",
     "Шаблоны функций.md",
@@ -239,10 +244,6 @@
     "Parallel Programming/Структуры данных с блокировками.md",
     "Структуры данных с блокировками.md",
     "Parallel Programming/mutex.md",
-    "Parallel Programming/Структуры данных\nс блокировками.md",
-    "Parallel Programming/Модель памяти.md",
-    "Parallel Programming/Работа с потоками.md",
-    "Parallel Programming/thread.md",
     "Parallel Programming/Шаблон Полусинхронная архитектура.ьв",
     "example/syscpp-master.zip",
     "example",
