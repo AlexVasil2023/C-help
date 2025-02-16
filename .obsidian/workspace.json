@@ -206,11 +206,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9709916f0f1027c0",
+  "active": "0482e96c9642925f",
   "lastOpenFiles": [
     "Содержание.md",
     "template/templates.md",
     "template/Шаблоны классов.md",
+    "Пример вычисления факториала.md",
+    "Специализация шаблонов.md",
     "template/Шаблоны функций.md",
     "STL/constexpr.md",
     "Вывод типов шаблонных параметров для классов.md",
@@ -234,8 +236,6 @@
     "QML/Элементы анимации.md",
     "chrono.md",
     "Meyers Effective modern c++/Parallel computing.md",
-    "Parallel Programming/Parallel programming.md",
-    "Parallel Programming/Библиотека для работы со временем.md",
     "image/time_9.png",
     "image/time_8.png",
     "image/time_7.png",
