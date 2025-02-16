@@ -49,8 +49,7 @@
               "title": "Шаблоны классов"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -206,14 +205,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0482e96c9642925f",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
-    "Содержание.md",
     "template/templates.md",
     "template/Шаблоны классов.md",
+    "Содержание.md",
+    "template/Шаблоны функций.md",
     "Пример вычисления факториала.md",
     "Специализация шаблонов.md",
-    "template/Шаблоны функций.md",
     "STL/constexpr.md",
     "Вывод типов шаблонных параметров для классов.md",
     "Вывод аргументов для шаблонов классов.md",
