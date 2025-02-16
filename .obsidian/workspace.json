@@ -49,7 +49,8 @@
               "title": "Шаблоны функций"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -81,7 +82,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#разделе_1_4",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -102,7 +103,8 @@
               "title": "Закладки"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -205,13 +207,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c50a6b3254a54067",
+  "active": "c2aab2957335e13b",
   "lastOpenFiles": [
+    "Содержание.md",
     "template/templates.md",
     "template/Шаблоны функций.md",
+    "template/common_type.md",
+    "template/decay.md",
+    "template/declval.md",
+    "decay.md",
+    "STL/declval.md",
     "Meyers Effective modern c++/auto.md",
     "Meyers Effective modern c++/Вывод типа auto.md",
-    "Содержание.md",
     "Шаблоны с переменным числом аргументов.md",
     "Шаблоны переменных.md",
     "Вывод аргументов для шаблонов классов.md",
@@ -239,11 +246,6 @@
     "Parallel Programming/time_t.md",
     "Parallel Programming/Потокобезопасная очередь.md",
     "unique_lock.md",
-    "Parallel Programming/Потокобезопасный стек.md",
-    "stack.md",
-    "Parallel Programming/Структуры данных с блокировками.md",
-    "Структуры данных с блокировками.md",
-    "Parallel Programming/mutex.md",
     "Parallel Programming/Шаблон Полусинхронная архитектура.ьв",
     "example/syscpp-master.zip",
     "example",
