@@ -210,8 +210,9 @@
   "active": "c2aab2957335e13b",
   "lastOpenFiles": [
     "Содержание.md",
-    "template/templates.md",
+    "Вывод типов шаблонных параметров для классов.md",
     "template/Шаблоны функций.md",
+    "template/templates.md",
     "template/common_type.md",
     "template/decay.md",
     "template/declval.md",
@@ -245,7 +246,6 @@
     "Parallel Programming/asctime.md",
     "Parallel Programming/time_t.md",
     "Parallel Programming/Потокобезопасная очередь.md",
-    "unique_lock.md",
     "Parallel Programming/Шаблон Полусинхронная архитектура.ьв",
     "example/syscpp-master.zip",
     "example",
