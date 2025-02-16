@@ -82,7 +82,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#разделе_1_4",
+                "query": "tag:#главе_Qt_и_C_",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -103,8 +103,7 @@
               "title": "Закладки"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -207,7 +206,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0482e96c9642925f",
+  "active": "9709916f0f1027c0",
   "lastOpenFiles": [
     "Содержание.md",
     "template/templates.md",
