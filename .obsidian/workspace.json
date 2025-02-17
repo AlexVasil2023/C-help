@@ -209,10 +209,10 @@
   "active": "b9fcd67c8a4f0153",
   "lastOpenFiles": [
     "Содержание.md",
-    "template/templates.md",
     "template/Нетиповые параметры шаблонов.md",
-    "Шаблоны переменных.md",
     "Объявление not-type шаблонных параметров с помощью auto.md",
+    "template/templates.md",
+    "Шаблоны переменных.md",
     "template/Шаблоны классов.md",
     "template/Шаблоны функций.md",
     "Пример вычисления факториала.md",
