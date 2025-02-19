@@ -209,8 +209,9 @@
   "active": "b422387aa9f9570f",
   "lastOpenFiles": [
     "Содержание.md",
-    "template/Вариативные шаблоны.md",
     "template/templates.md",
+    "template/Вариативные шаблоны.md",
+    "Fold expressions.md",
     "Конфигурации шаблонных классов.md",
     "Пример числа Фиббоначчи.md",
     "Пример вычисления факториала.md",
@@ -233,7 +234,6 @@
     "Шаблоны классов.md",
     "STL/ref.md",
     "template/common_type.md",
-    "template/decay.md",
     "image/templ_1.png",
     "template",
     "image/time_9.png",
