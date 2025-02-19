@@ -36,7 +36,7 @@
             }
           },
           {
-            "id": "b422387aa9f9570f",
+            "id": "91a38649a1e43e6c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -49,8 +49,7 @@
               "title": "Вариативные шаблоны"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -206,10 +205,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b422387aa9f9570f",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
-    "Содержание.md",
     "template/Вариативные шаблоны.md",
+    "Содержание.md",
     "template/templates.md",
     "Fold expressions.md",
     "Конфигурации шаблонных классов.md",
