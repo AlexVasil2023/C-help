@@ -82,7 +82,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "decltype(auto)",
+                "query": "tag:#раздел_",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -209,8 +209,8 @@
   "active": "b422387aa9f9570f",
   "lastOpenFiles": [
     "Содержание.md",
-    "template/templates.md",
     "template/Вариативные шаблоны.md",
+    "template/templates.md",
     "Fold expressions.md",
     "Конфигурации шаблонных классов.md",
     "Пример числа Фиббоначчи.md",
