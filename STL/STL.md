@@ -8,8 +8,10 @@
 		1. [[#const]]
 		2. [[constexpr|constexpr]]
 		3. [[consteval]|consteval]
-	3. [[nullptr_t#nullptr|nullptr (Нулевой указатель)]]
-		1. [[nullptr_t#std nullptr_t|std::nullptr_t]]
+		4. [[nullptr_t#nullptr|nullptr (Нулевой указатель)]]
+		5. [[nullptr_t#std nullptr_t|std::nullptr_t]]
+	4. [[enum|enum(Перечисления)]] 2.4
+	5. [[union|union(Объединения)]] 2.5
 
 1. 
 
