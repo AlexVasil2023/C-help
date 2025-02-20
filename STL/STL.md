@@ -12,6 +12,9 @@
 		5. [[nullptr_t#std nullptr_t|std::nullptr_t]]
 	4. [[enum|enum(Перечисления)]] 2.4
 	5. [[union|union(Объединения)]] 2.5
+	6. Модульность
+		1. [[Module#Модули|Модули]] 3.2.2
+		2. [[namespace#namespace (Пространства имён)|namespace (Пространства имён)]] 3.3
 
 1. 
 

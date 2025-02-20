@@ -49,7 +49,8 @@
               "title": "Вариативные шаблоны"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -205,10 +206,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c50a6b3254a54067",
+  "active": "91a38649a1e43e6c",
   "lastOpenFiles": [
-    "template/Вариативные шаблоны.md",
     "Содержание.md",
+    "template/Вариативные шаблоны.md",
     "template/templates.md",
     "Fold expressions.md",
     "Конфигурации шаблонных классов.md",
