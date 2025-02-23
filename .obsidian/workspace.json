@@ -36,21 +36,20 @@
             }
           },
           {
-            "id": "55bf521d14d283bd",
+            "id": "462e982cfc12f2a4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "template/Шаблонные параметры шаблонов.md",
+                "file": "template/Семантика перемещения - Прямая передача.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Шаблонные параметры шаблонов"
+              "title": "Семантика перемещения - Прямая передача"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -209,8 +208,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "55bf521d14d283bd",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
+    "template/Семантика перемещения - Прямая передача.md",
     "template/templates.md",
     "Содержание.md",
     "template/Шаблонные параметры шаблонов.md",
@@ -236,7 +236,6 @@
     "STL/enable_if.md",
     "enable_if.md",
     "Fold expressions.md",
-    "Пример числа Фиббоначчи.md",
     "image/templ_1.png",
     "template",
     "image/time_9.png",
