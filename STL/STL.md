@@ -16,9 +16,10 @@
 		1. [[Module#Модули|Модули]] 3.2.2
 		2. [[namespace#namespace (Пространства имён)|namespace (Пространства имён)]] 3.3
 	7. Исключения
-		1. 
+		1. [[assert#assert|assert]] 4.5.1
+		2. [[assert#static_assert()|static_assert()]] 4.5.2
+		3. [[noexcept|noexcept]] 4.5.3
 
-1. 
 
 
 
