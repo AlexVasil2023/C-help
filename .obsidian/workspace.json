@@ -77,7 +77,8 @@
               "title": "Классы"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -236,11 +237,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c50a6b3254a54067",
+  "active": "30d9b060bb7d6b91",
   "lastOpenFiles": [
-    "template/По значению или по ссылке.md",
     "Содержание.md",
     "template/templates.md",
+    "template/По значению или по ссылке.md",
     "Meyers Effective modern c++/rvalue.md",
     "Meyers Effective modern c++/shared_ptr.md",
     "template/значение.md",
