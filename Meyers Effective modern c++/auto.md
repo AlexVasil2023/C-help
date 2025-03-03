@@ -326,3 +326,7 @@ auto x2 = { 1, 2, 3 }; // присваивание: decltype(x2) is std::initial
 auto x3{ 3 }; // тип выводится из типа элемента: decltype(x3) is int 
 auto x4{ 3.0 }; // тип выводится из типа элемента: decltype(x4) is double
 ```
+
+# Вывод типа auto
+
+[[Вывод типа auto| см. Вывод типа auto]]
