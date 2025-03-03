@@ -36,17 +36,17 @@
             }
           },
           {
-            "id": "30d9b060bb7d6b91",
+            "id": "b29a9ca68c0dff26",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "template/По значению или по ссылке.md",
+                "file": "template/Программирование времени компиляции.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "По значению или по ссылке"
+              "title": "Программирование времени компиляции"
             }
           },
           {
@@ -62,23 +62,8 @@
               "icon": "lucide-file",
               "title": "STL"
             }
-          },
-          {
-            "id": "d0f8f6cd4b0c871f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "STL/const.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "const"
-            }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -237,19 +222,24 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d0f8f6cd4b0c871f",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
-    "Константы.md",
-    "Содержание.md",
-    "STL/const.md",
     "STL/STL.md",
-    "STL/Классы.md",
-    "template/По значению или по ссылке.md",
+    "Содержание.md",
     "template/templates.md",
+    "template/Программирование времени компиляции.md",
+    "STL/constexpr.md",
+    "Meyers Effective modern c++/Используйте, где это возможно, constexpr.md",
+    "STL/make_pair.md",
+    "template/По значению или по ссылке.md",
+    "template/common_type.md",
+    "STL/remove_reference.md",
+    "STL/const.md",
+    "Константы.md",
+    "STL/Классы.md",
     "template/Шаблоны функций.md",
     "template/reference_wrapper.md",
     "STL/consteval.md",
-    "STL/constexpr.md",
     "template/Семантика перемещения - Применение концептов для упрощения выражений enable_if.md",
     "static_assert.md",
     "Meyers Effective modern c++/rvalue.md",
@@ -261,12 +251,7 @@
     "l-значение.md",
     "template/х-значение.md",
     "template/pr-значение.md",
-    "template/r-значение.md",
-    "template/l-значение.md",
     "template/gl-значение.ьв",
-    "template/г-значение.md",
-    "template/х-значения.md",
-    "template/pr-значения.md",
     "template/Семантика перемещения - .txt",
     "image/templ_1.png",
     "template",
