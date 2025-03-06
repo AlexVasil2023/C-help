@@ -2,6 +2,7 @@
 [[#constexpr C++11]]
 [[#constexpr C++17]]
 [[#Ослабление ограничений для constexpr функций C++14]]
+[[#if constexpr|if constexpr]]
 
 # constexpr C++11
 
@@ -131,12 +132,8 @@ constexpr int factorial(int n) {
 factorial(5); // == 120
 ```
 
-
-
-
-
-
-
+# if constexpr
+#if_constexpr
 
 
 
