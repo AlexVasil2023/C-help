@@ -63,7 +63,8 @@
               "title": "STL"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -222,11 +223,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c50a6b3254a54067",
+  "active": "8e974aa4f5e62415",
   "lastOpenFiles": [
-    "template/templates.md",
+    "STL/extern.md",
+    "STL/goto.md",
     "template/Основные термины в области шаблонов.md",
     "Содержание.md",
+    "template/templates.md",
     "template/Применение шаблонов на практике.md",
     "STL/set.md",
     "STL/inline.md",
@@ -248,8 +251,6 @@
     "STL/remove_reference.md",
     "STL/const.md",
     "Константы.md",
-    "STL/Классы.md",
-    "template/Шаблоны функций.md",
     "image/Template_B_1.png",
     "template/gl-значение.ьв",
     "template/Семантика перемещения - .txt",
