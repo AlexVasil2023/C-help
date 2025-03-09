@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -223,12 +223,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c456fef5e3109d8e",
+  "active": "1c7ada1f1b5de02f",
   "lastOpenFiles": [
-    "STL/callback.md",
     "Содержание.md",
     "template/templates.md",
     "template/Обобщенные библиотеки.md",
+    "STL/invoke.md",
+    "STL/ostream.md",
+    "Parallel STL/for_each.md",
+    "STL/for.md",
+    "STL/callback.md",
     "template/Основные термины в области шаблонов.md",
     "STL/extern.md",
     "STL/goto.md",
@@ -247,10 +251,6 @@
     "decltype(auto).md",
     "C++17_Changes/ALL_IN_ONE.md",
     "Meyers Effective modern c++/Используйте, где это возможно, constexpr.md",
-    "STL/make_pair.md",
-    "template/По значению или по ссылке.md",
-    "template/common_type.md",
-    "STL/remove_reference.md",
     "image/Template_B_1.png",
     "template/gl-значение.ьв",
     "template/Семантика перемещения - .txt",
