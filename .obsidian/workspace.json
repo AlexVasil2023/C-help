@@ -63,8 +63,7 @@
               "title": "STL"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -223,11 +222,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1c7ada1f1b5de02f",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
-    "Содержание.md",
     "template/templates.md",
     "template/Обобщенные библиотеки.md",
+    "Содержание.md",
+    "template/declval.md",
+    "Meyers Effective modern c++/decltуре.md",
+    "STL/sizeof.md",
+    "template/addressof.md",
+    "template/значение.md",
+    "template/is_assignable.md",
+    "template/is_copy_assignable.md",
+    "template/add_rvalue_reference.md",
+    "Meyers Effective modern c++/rvalue.md",
+    "Meyers Effective modern c++/auto.md",
+    "template/Программирование времени компиляции.md",
     "STL/invoke.md",
     "STL/ostream.md",
     "Parallel STL/for_each.md",
@@ -240,17 +250,6 @@
     "STL/set.md",
     "STL/inline.md",
     "inline.md",
-    "template/type_info.md",
-    "template/typeid.md",
-    "template/Программирование времени компиляции.md",
-    "STL/constexpr.md",
-    "STL/STL.md",
-    "Meyers Effective modern c++/Вывод типа шаблона.md",
-    "Meyers Effective modern c++/decltуре.md",
-    "decltype.md",
-    "decltype(auto).md",
-    "C++17_Changes/ALL_IN_ONE.md",
-    "Meyers Effective modern c++/Используйте, где это возможно, constexpr.md",
     "image/Template_B_1.png",
     "template/gl-значение.ьв",
     "template/Семантика перемещения - .txt",
