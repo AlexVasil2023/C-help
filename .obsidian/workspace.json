@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -223,11 +223,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "eaf30b24abe46a5a",
+  "active": "3b57539faa6fde7e",
   "lastOpenFiles": [
     "Содержание.md",
     "template/templates.md",
     "template/Вглубь шаблонов.md",
+    "Статический полиморфизм.md",
+    "Шаблоны.md",
+    "template/Шаблоны классов.md",
+    "Псевдонимы шаблонов.md",
     "STL/STL.md",
     "template/Шаблоны-члены.md",
     "template/Обобщенные библиотеки.md",
@@ -247,10 +251,6 @@
     "STL/invoke.md",
     "STL/ostream.md",
     "Parallel STL/for_each.md",
-    "STL/for.md",
-    "STL/callback.md",
-    "template/Основные термины в области шаблонов.md",
-    "STL/extern.md",
     "image/Template_B_1.png",
     "template/gl-значение.ьв",
     "template/Семантика перемещения - .txt",
