@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -223,11 +223,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "68f1d09a399193ca",
+  "active": "3b57539faa6fde7e",
   "lastOpenFiles": [
+    "template/Инстанцирование в шаблонах.md",
     "Содержание.md",
     "template/templates.md",
-    "template/Инстанцирование в шаблонах.md",
     "template/Имена в шаблонах.md",
     "image/templates_1.png",
     "Концепция.md",
