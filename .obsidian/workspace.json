@@ -39,14 +39,14 @@
             "id": "463b51a361fae9d0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "template/Вывод аргументов шаблона.md",
-                "mode": "source",
-                "source": false
+                "aFile": ".obsidian/workspace.json",
+                "bFile": ".obsidian/workspace.json",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "Вывод аргументов шаблона"
+              "icon": "diff",
+              "title": "Diff: workspace.json"
             }
           },
           {
@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -223,11 +223,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "463b51a361fae9d0",
   "lastOpenFiles": [
-    "Содержание.md",
-    "template/templates.md",
     "template/Вывод аргументов шаблона.md",
+    "template/templates.md",
+    "Содержание.md",
     "template/Инстанцирование в шаблонах.md",
     "STL/wchar_t.md",
     "template/Имена в шаблонах.md",
