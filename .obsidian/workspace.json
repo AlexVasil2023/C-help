@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -223,11 +223,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "463b51a361fae9d0",
+  "active": "3b57539faa6fde7e",
   "lastOpenFiles": [
-    "template/Вывод аргументов шаблона.md",
-    "template/templates.md",
     "Содержание.md",
+    "template/templates.md",
+    "template/Вывод аргументов шаблона.md",
+    "SFINAE.md",
+    "template/Программирование времени компиляции.md",
     "template/Инстанцирование в шаблонах.md",
     "STL/wchar_t.md",
     "template/Имена в шаблонах.md",
@@ -253,8 +255,6 @@
     "Шаблоны.md",
     "template/Шаблоны классов.md",
     "Псевдонимы шаблонов.md",
-    "template/Шаблоны-члены.md",
-    "template/Обобщенные библиотеки.md",
     "image/Template_B_1.png",
     "template/gl-значение.ьв",
     "template/Семантика перемещения - .txt",
