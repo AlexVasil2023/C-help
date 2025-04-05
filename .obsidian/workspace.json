@@ -36,7 +36,7 @@
             }
           },
           {
-            "id": "463b51a361fae9d0",
+            "id": "f002cef680cd6d47",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -223,11 +223,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "f002cef680cd6d47",
   "lastOpenFiles": [
-    "template/Вывод аргументов шаблона.md",
     "Содержание.md",
     "template/templates.md",
+    "template/Вывод аргументов шаблона.md",
     "template/SFINAE.md",
     "SFINAE.md",
     "template/Программирование времени компиляции.md",
