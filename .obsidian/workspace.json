@@ -78,7 +78,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -110,7 +110,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#раздел_Г_5",
+                "query": "Вывод типа auto",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -237,12 +237,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "9709916f0f1027c0",
   "lastOpenFiles": [
-    "template/Вывод аргументов шаблона.md",
-    "Meyers Effective modern c++/decltуре.md",
-    "template/templates.md",
     "Содержание.md",
+    "template/Вывод аргументов шаблона.md",
+    "STL/Инициализация.md",
+    "Meyers Effective modern c++/Переход к c++11, c++14.md",
+    "STL/Программы - STL.md",
+    "Meyers Effective modern c++/Свертывание ссылок.md",
+    "template/Шаблоны функций.md",
+    "Meyers Effective modern c++/auto.md",
+    "Meyers Effective modern c++/decltуре.md",
+    "Meyers Effective modern c++/make_unique.md",
+    "Meyers Effective modern c++/Познакомьтесь с случаями некорректной работы прямой передачи.md",
+    "Meyers Effective modern c++/Вывод типа auto.md",
+    "template/templates.md",
     "template/SFINAE.md",
     "SFINAE.md",
     "template/Программирование времени компиляции.md",
@@ -257,18 +266,9 @@
     "STL/STL.md",
     "STL/Основные операции.md",
     "STL/Операторы сравнения.md",
-    "STL/end.md",
-    "STL/begin.md",
-    "STL/hash.md",
-    "Parallel STL/swap.md",
-    "STL/fstream.md",
     "image/STL_16.png",
-    "Meyers Effective modern c++/move.md",
     "image/STL_15.png",
     "image/stl_14.png",
-    "STL/Классы.md",
-    "Статический полиморфизм.md",
-    "Шаблоны.md",
     "image/Template_B_1.png",
     "template/gl-значение.ьв",
     "template/Семантика перемещения - .txt",
