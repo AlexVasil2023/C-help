@@ -50,20 +50,6 @@
             }
           },
           {
-            "id": "09ff3cc27d40dcee",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Meyers Effective modern c++/decltуре.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "decltуре"
-            }
-          },
-          {
             "id": "77151bd600ffa22d",
             "type": "leaf",
             "state": {
@@ -78,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -237,21 +223,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9709916f0f1027c0",
+  "active": "f002cef680cd6d47",
   "lastOpenFiles": [
+    "template/templates.md",
     "Содержание.md",
     "template/Вывод аргументов шаблона.md",
+    "STL/tuple.md",
+    "Meyers Effective modern c++/auto.md",
+    "Meyers Effective modern c++/decltуре.md",
     "STL/Инициализация.md",
     "Meyers Effective modern c++/Переход к c++11, c++14.md",
     "STL/Программы - STL.md",
     "Meyers Effective modern c++/Свертывание ссылок.md",
     "template/Шаблоны функций.md",
-    "Meyers Effective modern c++/auto.md",
-    "Meyers Effective modern c++/decltуре.md",
     "Meyers Effective modern c++/make_unique.md",
     "Meyers Effective modern c++/Познакомьтесь с случаями некорректной работы прямой передачи.md",
     "Meyers Effective modern c++/Вывод типа auto.md",
-    "template/templates.md",
     "template/SFINAE.md",
     "SFINAE.md",
     "template/Программирование времени компиляции.md",
@@ -265,7 +252,6 @@
     "template/Вглубь шаблонов.md",
     "STL/STL.md",
     "STL/Основные операции.md",
-    "STL/Операторы сравнения.md",
     "image/STL_16.png",
     "image/STL_15.png",
     "image/stl_14.png",
