@@ -65,4 +65,3 @@ int main(){
 
 ![[ParallelProg_87.png]]
 
-

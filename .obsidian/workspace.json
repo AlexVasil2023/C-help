@@ -49,8 +49,7 @@
               "title": "STL"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -209,7 +208,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "c50a6b3254a54067",
   "lastOpenFiles": [
     "Содержание.md",
     "template/templates.md",
