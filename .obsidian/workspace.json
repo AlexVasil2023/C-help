@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c50a6b3254a54067",
+            "id": "d67f1e99ffea7417",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -223,11 +223,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "94a106a159195f2d",
   "lastOpenFiles": [
     "Содержание.md",
     "template/templates.md",
     "template/Шаблоны Специализация и перегрузка.md",
+    "STL/STL.md",
+    "template/Concepts.md",
     "template/Вывод аргументов шаблона.md",
     "STL/tuple.md",
     "Meyers Effective modern c++/auto.md",
@@ -249,9 +251,7 @@
     "image/templates_1.png",
     "Концепция.md",
     "STL/Концепция.md",
-    "template/Concepts.md",
     "template/Вглубь шаблонов.md",
-    "STL/STL.md",
     "image/STL_16.png",
     "image/STL_15.png",
     "image/stl_14.png",
