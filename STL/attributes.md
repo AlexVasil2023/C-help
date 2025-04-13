@@ -1,4 +1,38 @@
-# Аттрибут \[\[no_unique_address]]
+
+[[#Аттрибуты|Аттрибуты]]
+1. [[#Атрибуты C++11|Атрибуты C++11]]
+2. [[#Аттрибут no_unique_address|Аттрибут no_unique_address]]
+	1. [[#C++17]]
+	2. [[#C++20]]
+3. [[#Аттрибут likely and unlikely]]
+	1. [[#C++17]]
+	2. [[#C++20]]
+4. [[#Аттрибут fallthrough]]
+	1. [[#C++14]]
+	2. [[#C++17]]
+5. [[#Аттрибут nodiscard]]
+	1. [[#C++17]]
+	2. [[#C++14]]
+6. [[#Аттрибут maybe_unused]]
+	1. [[#C++14]]
+	2. [[#C++17]]
+
+
+# Аттрибуты
+#Аттрибуты
+
+
+
+# Атрибуты C++11
+Атрибуты создают универсальный синтаксис над **`__attribute__(...)`**, **`__declspec`** и т. п.
+```c++
+// `noreturn` атрибут указывает, что' f` не возвращается
+[[ noreturn ]] void f() {
+  throw "error";
+}
+```
+
+# Аттрибут no_unique_address
 Если элемент данных не обязательно должен иметь отдельный адрес, компилятор может оптимизировать его, чтобы он не занимал места.
 Чтобы объект не занимал места, должны применяться следующие требования:
 1. Объект пуст.  
@@ -41,7 +75,7 @@ int main() {
     static_assert(sizeof(Test< Empty,Empty >) == 2);   
 }
 ```
-# Аттрибут \[\[likely\]\] and \[\[unlikely\]\]
+# Аттрибут likely and unlikely
 Использование этих атрибутов помогает компилятору оптимизировать для случая, когда пути выполнения более или менее вероятны, чем любые альтернативные пути выполнения, которые не включают использование этих атрибутов.
 ### C++17
 ```c++
@@ -72,13 +106,15 @@ int main() {
             continue;
         }
     }
-    const std::chrono::duration diff = std::chrono::high_resolution_clock::now() - start;
+    const std::chrono::duration diff = 
+			    std::chrono::high_resolution_clock::now() - start;
+			    
     std::cout << "Time: " << diff.count() << " sec " << std::endl;
 }
 ```
 Оба атрибута необязательно использовать, достаточно использовать только один из **\[\[likely]]** или **\[\[unlikely]]**.
 Они также могут использоваться в операторах **switch** .
-### C++20
+
 ```c++
 bool enoughCoffee(int coffeeLeft) {
     switch(coffeeLeft){
@@ -89,7 +125,141 @@ bool enoughCoffee(int coffeeLeft) {
 }
 ```
 
+# Аттрибут fallthrough
+## C++14
+```c++
+switch (device.status())
+{
+case sleep:
+   device.wake();
+   // fall thru
+case ready:
+   device.run();
+   break;
+case bad:
+   handle_error();
+   break;
+}
+```
+## C++17
+```c++
+switch (device.status())
+{
+case sleep:
+   device.wake();
+   [[fallthrough]];
+case ready:
+   device.run();
+   break;
+case bad:
+   handle_error();
+   break;
+}
+```
+# Аттрибут nodiscard
+В функциях:
+```c++
+struct SomeInts
+{
+   bool empty();
+   void push_back(int);
+   //etc
+};
 
+void random_fill(SomeInts & container,
+      int min, int max, int count)
+{
+   container.empty(); // empty it first
+   for (int num : gen_rand(min, max, count))
+      container.push_back(num);
+}
+```
+## C++17
+```c++
+struct SomeInts
+{
+   [[nodiscard]] bool empty();
+   void push_back(int);
+   //etc
+};
+
+void random_fill(SomeInts & container,
+      int min, int max, int count)
+{
+   container.empty(); // empty it first
+   for (int num : gen_rand(min, max, count))
+      container.push_back(num);
+}
+```
+
+В классах или структурах:
+## C++14
+```c++
+struct MyError {
+  std::string message;
+  int code;
+};
+
+MyError divide(int a, int b) {
+  if (b == 0) {
+    return {"Division by zero", -1};
+  }
+
+  std::cout << (a / b) << '\n';
+
+  return {};
+}
+
+divide(1, 2);
+```
+## C++17
+```c++
+struct [[nodiscard]] MyError {
+  std::string message;
+  int code;
+};
+
+MyError divide(int a, int b) {
+  if (b == 0) {
+    return {"Division by zero", -1};
+  }
+
+  std::cout << (a / b) << '\n';
+
+  return {};
+}
+
+divide(1, 2);
+```
+
+Совет: используйте `[[nodiscard]]` **с осторожностью**. т.е. только тогда, когда действительно нет причин игнорировать это значение.
+
+# Аттрибут maybe_unused
+## C++14
+```c++
+bool res = step1();
+assert(res);
+step2();
+etc();
+```
+## C++17
+```c++
+[[maybe_unused]] bool res = step1();
+assert(res);
+step2();
+etc();
+```
+## C++17
+```c++
+[[maybe_unused]] void f()
+{
+  /*...*/
+}
+
+int main()
+{
+}
+```
 
 
 
