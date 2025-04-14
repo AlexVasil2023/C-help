@@ -36,17 +36,17 @@
             }
           },
           {
-            "id": "94a106a159195f2d",
+            "id": "4fff2b31b50682e3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "template/Шаблоны Специализация и перегрузка.md",
+                "file": "template/шаблоны Дальнейшее развитие.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Шаблоны Специализация и перегрузка"
+              "title": "шаблоны Дальнейшее развитие"
             }
           },
           {
@@ -223,10 +223,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "94a106a159195f2d",
+  "active": "4fff2b31b50682e3",
   "lastOpenFiles": [
     "Содержание.md",
     "template/templates.md",
+    "template/шаблоны Дальнейшее развитие.md",
+    "template/typename.md",
+    "STL/alignas.md",
+    "STL/alignof.md",
+    "STL/static.md",
+    "template/шаблоны Дальнейшее развитие",
     "template/Шаблоны Специализация и перегрузка.md",
     "STL/STL.md",
     "template/Concepts.md",
@@ -246,12 +252,7 @@
     "SFINAE.md",
     "template/Программирование времени компиляции.md",
     "template/Инстанцирование в шаблонах.md",
-    "STL/wchar_t.md",
-    "template/Имена в шаблонах.md",
     "image/templates_1.png",
-    "Концепция.md",
-    "STL/Концепция.md",
-    "template/Вглубь шаблонов.md",
     "image/STL_16.png",
     "image/STL_15.png",
     "image/stl_14.png",
@@ -269,7 +270,6 @@
     "example",
     "Parallel Programming/шаблон Объект-монитор.txt",
     "Parallel Programming/Шаблоны и эмпирические правила.ьв",
-    "Parallel Programming/Будущие Блоки заданий.txt",
-    "book/C_i_C_v_zadachakh_i_primerakh_2019_Nikita_Kultin.pdf"
+    "Parallel Programming/Будущие Блоки заданий.txt"
   ]
 }
