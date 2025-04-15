@@ -2,6 +2,7 @@
 [[#Концепт|Концепт]]
 [[#Концепт STL|Концепт STL]] 8.2(STL)
 1. [[#концепт copyable|концепт copyable]]
+2. [[#концепт LessThanComparable|концепт LessThanComparable]]
 
 # Концепт
 
@@ -65,6 +66,9 @@ Value sum(Seq s, Value v)
 ## концепт copyable
 #концепт_copyable
 
+
+## концепт LessThanComparable
+#LessThanComparable
 
 
 

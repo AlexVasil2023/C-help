@@ -63,8 +63,7 @@
               "title": "STL"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -223,11 +222,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4fff2b31b50682e3",
+  "active": "d67f1e99ffea7417",
   "lastOpenFiles": [
     "template/templates.md",
     "template/шаблоны Дальнейшее развитие.md",
     "Содержание.md",
+    "template/Concepts.md",
+    "C++17_Changes/ALL_IN_ONE.md",
+    "Концепция.md",
     "template/typename.md",
     "STL/alignas.md",
     "STL/alignof.md",
@@ -235,7 +237,6 @@
     "template/шаблоны Дальнейшее развитие",
     "template/Шаблоны Специализация и перегрузка.md",
     "STL/STL.md",
-    "template/Concepts.md",
     "template/Вывод аргументов шаблона.md",
     "STL/tuple.md",
     "Meyers Effective modern c++/auto.md",
@@ -250,8 +251,6 @@
     "Meyers Effective modern c++/Вывод типа auto.md",
     "template/SFINAE.md",
     "SFINAE.md",
-    "template/Программирование времени компиляции.md",
-    "template/Инстанцирование в шаблонах.md",
     "image/templates_1.png",
     "image/STL_16.png",
     "image/STL_15.png",
