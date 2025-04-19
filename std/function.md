@@ -8,7 +8,7 @@ bool(const std::unique_ptr<Widget> &,       // Сигнатура C++11 для
 ```
 следует написать следующее:
 ```c++
-std::function<Ьool(const std::unique_ptr<Widqet>& ,
+std::function<bool(const std::unique_ptr<Widqet>& ,
                    const std::unique_ptr<Widqet>&)> func;
 ```
 

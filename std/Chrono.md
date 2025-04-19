@@ -17,6 +17,7 @@
 [[#std chrono steady_clock|std::chrono::steady_clock]]
 [[#std chrono high_resolution_clock|std::chrono::high_resolution_clock]]
 [[#std chrono duration|std::chrono::duration]]
+[[#std literals chrono_literals|std::literals::chrono_literals]]
 
 
 # Библиотека для работы со временем
@@ -647,3 +648,20 @@ int main() {
 
 # std::chrono::duration
 #std_chrono_duration
+
+
+# std::literals::chrono_literals
+#std::literals::chrono_literals
+
+суффиксы обозначающие: `y` - годы, `d` - дни, `h` - часы, `min` - минуты, `ms` - миллисекунды, `ns` - наносекунды, `s` - секунды и `us` - микросекунды
+
+
+
+
+
+
+
+
+
+
+
