@@ -36,17 +36,17 @@
             }
           },
           {
-            "id": "4fff2b31b50682e3",
+            "id": "e69faa300314f028",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "template/шаблоны Дальнейшее развитие.md",
+                "file": "template/template Полиморфная мощь шаблонов.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "шаблоны Дальнейшее развитие"
+              "title": "template Полиморфная мощь шаблонов"
             }
           },
           {
@@ -63,7 +63,8 @@
               "title": "STL"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -120,7 +121,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5
+    "width": 375.5
   },
   "right": {
     "id": "470050888e4ee6dc",
@@ -222,11 +223,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d67f1e99ffea7417",
+  "active": "3b57539faa6fde7e",
   "lastOpenFiles": [
-    "template/templates.md",
-    "template/шаблоны Дальнейшее развитие.md",
+    "template/template Полиморфная мощь шаблонов.md",
     "Содержание.md",
+    "template/templates.md",
+    "Абстрактные классы.md",
+    "template/template Дальнейшее развитие.md",
+    "template/template Программирование времени компиляции.md",
+    "template/template Инстанцирование в шаблонах.md",
     "template/Concepts.md",
     "C++17_Changes/ALL_IN_ONE.md",
     "Концепция.md",
@@ -235,9 +240,9 @@
     "STL/alignof.md",
     "STL/static.md",
     "template/шаблоны Дальнейшее развитие",
-    "template/Шаблоны Специализация и перегрузка.md",
+    "template/template Шаблоны Специализация и перегрузка.md",
     "STL/STL.md",
-    "template/Вывод аргументов шаблона.md",
+    "template/template Вывод аргументов шаблона.md",
     "STL/tuple.md",
     "Meyers Effective modern c++/auto.md",
     "Meyers Effective modern c++/decltуре.md",
@@ -245,12 +250,8 @@
     "Meyers Effective modern c++/Переход к c++11, c++14.md",
     "STL/Программы - STL.md",
     "Meyers Effective modern c++/Свертывание ссылок.md",
-    "template/Шаблоны функций.md",
+    "template/template Шаблоны функций.md",
     "Meyers Effective modern c++/make_unique.md",
-    "Meyers Effective modern c++/Познакомьтесь с случаями некорректной работы прямой передачи.md",
-    "Meyers Effective modern c++/Вывод типа auto.md",
-    "template/SFINAE.md",
-    "SFINAE.md",
     "image/templates_1.png",
     "image/STL_16.png",
     "image/STL_15.png",
