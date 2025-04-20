@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -223,11 +223,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "e69faa300314f028",
   "lastOpenFiles": [
+    "template/templates.md",
     "template/template Полиморфная мощь шаблонов.md",
     "Содержание.md",
-    "template/templates.md",
     "image/template_4.png",
     "image/template_3.png",
     "image/template_2.png",
