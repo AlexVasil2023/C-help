@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -223,11 +223,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e69faa300314f028",
+  "active": "3b57539faa6fde7e",
   "lastOpenFiles": [
+    "template/template Полиморфная мощь шаблонов.md",
     "Содержание.md",
     "template/templates.md",
-    "template/template Полиморфная мощь шаблонов.md",
+    "image/template_4.png",
+    "image/template_3.png",
     "image/template_2.png",
     "image/template_1.png",
     "Абстрактные классы.md",
@@ -262,8 +264,6 @@
     "template/Семантика перемещения - .txt",
     "image/templ_1.png",
     "template",
-    "image/time_9.png",
-    "image/time_8.png",
     "Parallel Programming/Шаблон Полусинхронная архитектура.ьв",
     "example/syscpp-master.zip",
     "example",
