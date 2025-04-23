@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -223,13 +223,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "32a691982a759552",
   "lastOpenFiles": [
-    "template/template Реализация свойств типов.md",
+    "Содержание.md",
     "template/templates.md",
+    "template/template Реализация свойств типов.md",
+    "std/is_same.md",
     "template/template значение.md",
     "template/template Вывод аргументов шаблона.md",
-    "Содержание.md",
     "template/template Полиморфная мощь шаблонов.md",
     "image/template_5.png",
     "static_assert.md",
@@ -256,7 +257,6 @@
     "Meyers Effective modern c++/decltуре.md",
     "STL/Инициализация.md",
     "Meyers Effective modern c++/Переход к c++11, c++14.md",
-    "STL/Программы - STL.md",
     "image/templates_1.png",
     "image/STL_16.png",
     "image/STL_15.png",
