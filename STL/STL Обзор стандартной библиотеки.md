@@ -191,7 +191,7 @@ void g(vector<int>& v)
 | `<string>`        | [[string#std string\|string]], [[string#basic_string\|basic_string]]                                                                                                               |
 | `<string_view>`   | [[string_view#std string_view C++17\|string_view]]                                                                                                                                 |
 | `<set>`           | [[set\|set]], [[multiset\|multiset]]                                                                                                                                               |
-| `<sstream>`       | [[sstream#istringstream\|istringstream]], [[sstream#ostringstream\|ostringstream]]                                                                                                 |
+| `<sstream>`       | [[std/sstream#istringstream\|istringstream]], [[std/sstream#ostringstream\|ostringstream]]                                                                                                 |
 | `<stdexcept>`     | length_error, out_of_range, runtime_error                                                                                                                                          |
 | `<tuple>`         | [[tuple#std tuple\|tuple]], get<>(), [[tuple#std tuple_size\|tuple_size<>]]                                                                                                        |
 | `<thread>`        | [[thread\|thread]]                                                                                                                                                                 |

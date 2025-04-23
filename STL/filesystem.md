@@ -1,3 +1,7 @@
+
+[[#std filesystem C++17]]
+1. [[#Path]]
+
 # std::filesystem C++17#
 #std_filesystem
 
@@ -16,3 +20,9 @@ if (std::filesystem::exists(bigFilePath)) {
   }
 }
 ```
+
+
+
+## Path
+#Path
+

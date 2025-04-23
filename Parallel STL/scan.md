@@ -4,6 +4,7 @@
 [[#std inclusive_scan|std::inclusive_scan]]
 [[#std transform_exclusive_scan|std::transform_exclusive_scan]]
 [[#std transform_inclusive_scan|std::transform_inclusive_scan]]
+[[#scanf|scanf]]
 
 # scan
 #std_scan
@@ -38,4 +39,5 @@
 
 
 
-
+# scanf
+#scanf
