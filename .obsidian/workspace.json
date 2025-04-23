@@ -225,9 +225,9 @@
   },
   "active": "32a691982a759552",
   "lastOpenFiles": [
-    "Содержание.md",
     "template/templates.md",
     "template/template Реализация свойств типов.md",
+    "Содержание.md",
     "std/is_same.md",
     "template/template значение.md",
     "template/template Вывод аргументов шаблона.md",
