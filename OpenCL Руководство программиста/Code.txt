@@ -1,0 +1,1254 @@
+:Определение характеристик CPU :
+Получить информацию о модели процессора.
+Оценить производитель
+
+Определение характеристик GPU :
+Проверить доступность GPU.
+Оценить производ
+
+Оценка текущей загрузки CPU/GPU :
+Использовать системные API для получения данных о загрузке.
+
+Реализация алгоритма выбора :
+Сравнить производительность CPU и GPU с учетом их текущей загрузки.
+Выбрать устройство с наименьшим прогнозируемым временем выполнения.
+
+#include <iostream>
+#include <vector>
+#include <chrono>
+#include <thread>
+#include <cmath>
+#include <cuda_runtime.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+
+// Функция для получения загрузки CPU (в процентах)
+float get_cpu_usage() {
+    // Реализация зависит от платформы
+#ifdef _WIN32
+    // Windows-specific implementation
+    FILETIME idleTime, kernelTime, userTime;
+    GetSystemTimes(&idleTime, &kernelTime, &userTime);
+
+    ULARGE_INTEGER idle, kernel, user;
+    idle.LowPart = idleTime.dwLowDateTime;
+    idle.HighPart = idleTime.dwHighDateTime;
+
+    kernel.LowPart = kernelTime.dwLowDateTime;
+    kernel.HighPart = kernelTime.dwHighDateTime;
+
+    user.LowPart = userTime.dwLowDateTime;
+    user.HighPart = userTime.dwHighDateTime;
+
+    uint64_t total = (kernel.QuadPart - idle.QuadPart) + user.QuadPart;
+    uint64_t idleTotal = idle.QuadPart;
+
+    static uint64_t previousTotal = 0;
+    static uint64_t previousIdle = 0;
+
+    uint64_t diffTotal = total - previousTotal;
+    uint64_t diffIdle = idleTotal - previousIdle;
+
+    previousTotal = total;
+    previousIdle = idleTotal;
+
+    return (1.0f - (float)diffIdle / diffTotal) * 100.0f;
+#else
+    // Linux-specific implementation
+    std::ifstream stat_file("/proc/stat");
+    std::string line;
+    std::getline(stat_file, line);
+    stat_file.close();
+
+    std::istringstream iss(line);
+    std::string cpu_label;
+    long user, nice, system, idle, iowait, irq, softirq, steal, guest, guest_nice;
+    iss >> cpu_label >> user >> nice >> system >> idle >> iowait >> irq >> softirq >> steal >> guest >> guest_nice;
+
+    static long prev_idle = 0, prev_total = 0;
+    long curr_idle = idle + iowait;
+    long curr_total = user + nice + system + idle + iowait + irq + softirq + steal;
+
+    long diff_idle = curr_idle - prev_idle;
+    long diff_total = curr_total - prev_total;
+
+    prev_idle = curr_idle;
+    prev_total = curr_total;
+
+    return (1.0f - (float)diff_idle / diff_total) * 100.0f;
+#endif
+}
+
+// Функция для проверки доступности GPU и его производительности
+bool is_gpu_available(int& cuda_cores, float& gpu_clock_rate) {
+    int device_count = 0;
+    cudaGetDeviceCount(&device_count);
+
+    if (device_count == 0) {
+        return false; // GPU недоступен
+    }
+
+    cudaDeviceProp prop;
+    cudaGetDeviceProperties(&prop, 0); // Получаем свойства первого GPU
+
+    cuda_cores = prop.multiProcessorCount * (prop.major >= 2 ? 192 : 8); // Примерное количество CUDA-ядер
+    gpu_clock_rate = prop.clockRate / 1000.0f; // Тактовая частота в МГц
+
+    return true;
+}
+
+// Функция для оценки времени выполнения FFT на CPU
+double estimate_cpu_fft_time(size_t data_size, float cpu_usage) {
+    const float cpu_performance = 10.0f; // Производительность CPU (GFLOPS), примерное значение
+    const float load_factor = 1.0f + (cpu_usage / 100.0f); // Загрузка CPU влияет на время выполнения
+    double operations = 5.0 * data_size * log2(data_size); // Приблизительное количество операций для FFT
+    return operations / (cpu_performance * 1e9) * load_factor; // Время в секундах
+}
+
+// Функция для оценки времени выполнения FFT на GPU
+double estimate_gpu_fft_time(size_t data_size, int cuda_cores, float gpu_clock_rate) {
+    const float gpu_performance = cuda_cores * gpu_clock_rate * 2.0f; // Производительность GPU (GFLOPS)
+    double operations = 5.0 * data_size * log2(data_size); // Приблизительное количество операций для FFT
+    return operations / (gpu_performance * 1e9); // Время в секундах
+}
+
+int main() {
+    size_t data_size = 1 << 20; // Размер данных для FFT (например, 1 млн точек)
+
+    // Получение информации о CPU
+    float cpu_usage = get_cpu_usage();
+    std::cout << "CPU Usage: " << cpu_usage << "%" << std::endl;
+
+    // Получение информации о GPU
+    int cuda_cores = 0;
+    float gpu_clock_rate = 0.0f;
+    bool gpu_available = is_gpu_available(cuda_cores, gpu_clock_rate);
+
+    if (gpu_available) {
+        std::cout << "GPU Available. CUDA Cores: " << cuda_cores << ", Clock Rate: " << gpu_clock_rate << " MHz" << std::endl;
+    } else {
+        std::cout << "GPU Not Available." << std::endl;
+    }
+
+    // Оценка времени выполнения на CPU и GPU
+    double cpu_time = estimate_cpu_fft_time(data_size, cpu_usage);
+    double gpu_time = gpu_available ? estimate_gpu_fft_time(data_size, cuda_cores, gpu_clock_rate) : INFINITY;
+
+    std::cout << "Estimated CPU FFT Time: " << cpu_time << " seconds" << std::endl;
+    std::cout << "Estimated GPU FFT Time: " << gpu_time << " seconds" << std::endl;
+
+    // Выбор устройства
+    if (gpu_time < cpu_time) {
+        std::cout << "Performing FFT on GPU." << std::endl;
+    } else {
+        std::cout << "Performing FFT on CPU." << std::endl;
+    }
+
+    return 0;
+}
+
+
+Получение загрузки CPU :
+На Windows используется GetSystemTimes, а на Linux — чтение /proc/stat.
+
+Проверка доступности GPU :
+Используется CUDA API для получения количества CUDA-ядер и тактовой частоты.
+
+Оценка времени выполнения :
+Для CPU учитывается загрузка и приблизительная производительность.
+Для GPU учитывается количество CUDA-ядер и так
+
+Выбор устройства :
+Выбирается устройство с меньшим прогнозируемым временем выполнения.
+
+//==============================================================================
+
+напиши код табличного БПФ, выполняемого на GPU с распределением по все доступным cude-ядрам
+
+Подготовка данных:Подготовка данных :
+Данные для FFT будут переданы на GPU.
+Будет использоваться "табличный" подход, где пред
+
+Реализация алгоритма БПФ :
+Алгоритм будет выполнен в несколько этапов (
+Каждое CUDA-ядро будет обрабатывать одну или несколько бабочек.
+
+Распределение работы по CUDA-ядрам**Распределение :
+Мы будем использовать все доступные CUDA-ядра для параллельной обработки данных.
+
+Возврат результата :
+После завершения вычислений
+
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <cuda_runtime.h>
+
+// Константы
+const int MAX_LOG_N = 20; // Максимальный размер FFT (2^20 = 1M точек)
+const int THREADS_PER_BLOCK = 1024; // Количество потоков на блок
+
+// Структура для комплексных чисел
+struct Complex {
+    float real;
+    float imag;
+};
+
+// Функция для вычисления twiddle factors
+void compute_twiddle_factors(Complex* twiddle, int N) {
+    for (int k = 0; k < N / 2; ++k) {
+        float angle = -2.0f * M_PI * k / N;
+        twiddle[k].real = cos(angle);
+        twiddle[k].imag = sin(angle);
+    }
+}
+
+// Ядро CUDA для выполнения одной стадии FFT
+__global__ void fft_stage_kernel(Complex* data, const Complex* twiddle, int N, int stage) {
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    int stride = 1 << stage; // Размер текущего блока
+    int half_stride = stride / 2;
+
+    if (tid >= N / 2) return;
+
+    int i = (tid / half_stride) * stride + (tid % half_stride); // Индекс элемента
+    int j = i + half_stride;
+
+    // Вычисление индекса twiddle factor
+    int twiddle_index = (tid % half_stride) << (MAX_LOG_N - stage);
+
+    // Бабочка
+    Complex t = {data[j].real * twiddle[twiddle_index].real - data[j].imag * twiddle[twiddle_index].imag,
+                 data[j].real * twiddle[twiddle_index].imag + data[j].imag * twiddle[twiddle_index].real};
+
+    data[j].real = data[i].real - t.real;
+    data[j].imag = data[i].imag - t.imag;
+    data[i].real += t.real;
+    data[i].imag += t.imag;
+}
+
+// Функция для выполнения FFT на GPU
+void fft_gpu(const std::vector<Complex>& input, std::vector<Complex>& output, int N) {
+    // Выделение памяти на GPU
+    Complex* d_data;
+    Complex* d_twiddle;
+    cudaMalloc(&d_data, N * sizeof(Complex));
+    cudaMalloc(&d_twiddle, (N / 2) * sizeof(Complex));
+
+    // Передача входных данных на GPU
+    cudaMemcpy(d_data, input.data(), N * sizeof(Complex), cudaMemcpyHostToDevice);
+
+    // Вычисление и передача twiddle factors на GPU
+    std::vector<Complex> twiddle(N / 2);
+    compute_twiddle_factors(twiddle.data(), N);
+    cudaMemcpy(d_twiddle, twiddle.data(), (N / 2) * sizeof(Complex), cudaMemcpyHostToDevice);
+
+    // Выполнение FFT
+    int num_blocks = (N / 2 + THREADS_PER_BLOCK - 1) / THREADS_PER_BLOCK;
+    for (int stage = 1; stage <= log2(N); ++stage) {
+        fft_stage_kernel<<<num_blocks, THREADS_PER_BLOCK>>>(d_data, d_twiddle, N, stage);
+        cudaDeviceSynchronize(); // Ожидание завершения ядра
+    }
+
+    // Копирование результата обратно на CPU
+    cudaMemcpy(output.data(), d_data, N * sizeof(Complex), cudaMemcpyDeviceToHost);
+
+    // Освобождение памяти на GPU
+    cudaFree(d_data);
+    cudaFree(d_twiddle);
+}
+
+// Проверка корректности результата
+void verify_fft(const std::vector<Complex>& input, const std::vector<Complex>& output, int N) {
+    std::vector<Complex> reference(N);
+    // Здесь можно реализовать проверку с использованием CPU-версии FFT
+    std::cout << "Verification not implemented in this example." << std::endl;
+}
+
+int main() {
+    int N = 1 << 20; // Размер FFT (1M точек)
+    std::vector<Complex> input(N);
+    std::vector<Complex> output(N);
+
+    // Инициализация входных данных
+    for (int i = 0; i < N; ++i) {
+        input[i].real = static_cast<float>(rand()) / RAND_MAX;
+        input[i].imag = static_cast<float>(rand()) / RAND_MAX;
+    }
+
+    // Выполнение FFT на GPU
+    fft_gpu(input, output, N);
+
+    // Проверка результата
+    verify_fft(input, output, N);
+
+    // Вывод первых нескольких значений результата
+    for (int i = 0; i < 10; ++i) {
+        std::cout << "Output[" << i << "] = (" << output[i].real << ", " << output[i].imag << ")\n";
+    }
+
+    return 0;
+}
+
+//=============================================================================
+
+как определить максимально доступное количество потоков на блок в зависимости от характеристик GPU
+
+#include <iostream>
+#include <cuda_runtime.h>
+
+int main() {
+    int device_count = 0;
+    cudaGetDeviceCount(&device_count);
+
+    if (device_count == 0) {
+        std::cerr << "No CUDA-capable devices found." << std::endl;
+        return 1;
+    }
+
+    for (int i = 0; i < device_count; ++i) {
+        cudaDeviceProp prop;
+        cudaGetDeviceProperties(&prop, i);
+
+        std::cout << "Device " << i << ": " << prop.name << std::endl;
+        std::cout << "  Max Threads Per Block: " << prop.maxThreadsPerBlock << std::endl;
+        std::cout << "  Max Threads Per Multiprocessor: " << prop.maxThreadsPerMultiProcessor << std::endl;
+        std::cout << "  Warp Size: " << prop.warpSize << std::endl;
+        std::cout << "  Shared Memory Per Block: " << prop.sharedMemPerBlock / 1024.0f << " KB" << std::endl;
+        std::cout << "  Registers Per Block: " << prop.regsPerBlock << std::endl;
+        std::cout << "  Compute Capability: " << prop.major << "." << prop.minor << std::endl;
+    }
+
+    return 0;
+}
+
+**ПолучениеПолучение количества устройств :
+Функция cudaGetDeviceCount возвращает количество доступных CUDA-устройств.
+Получение свойств устройства :
+Для каждого устройства вызывается cudaGetDeviceProperties, чтобы получить структуру cudaDeviceProp.
+Вывод характеристик :
+Поле `maxmaxThreadsPerBlock показывает максимальное количество потоков
+Поле maxThreadsPerMultiProcessor показывает максимальное количество потоков, которые могут быть
+ДwarpSize, sharedMemPerBlock и regsPerBlock,
+
+
+Как это использовать:
+:Ограничение по потокам на блок :
+Значение maxThreadsPerBlock (например, 1024) указывает, что вы можете запустить
+Ограничение по разделяемой памяти :
+Если ваш алгоритsharedMemPerBlock) достаточен для ваших данных.
+Ограничение по регистрам :
+Если ваш код использует много регистров, убедитесь, что их количество не превышает regsPerBlock.
+Рекомендации по размеру блока :
+Например,размер блока должен быть кратен размеру warp (обычно 32). maxThreadsPerBlock = 1024, то рекомендуемые размеры бл
+Почему важно знать эти ограничения?
+Производительность :
+Использование слишком большого или слишком малого количества потоков на блок может негативно сказаться на производительности.
+Оптимизация использования ресурсов :
+Разделяемая память и регистры ограни
+Адаптация под конкретное устройство :
+Зная характеристики графического процессора, вы можете адаптировать свои алгоритмы для достижения максимальной производительности.
+//==============================================================================
+
+напиши код табличного БПФ для большого объема данных, выполняемого на GPU с распределением по всем доступным потокам в зависимости от GPU
+
+:Ограничение размера блока :
+Размер блmaxThreadsPerBlock для конкретного GPU.
+Размер блока должен быть кратен размеру warp (обычно 32).
+Распределение данных :
+Данные разбиваются на блоки, и каждый блок обрабатывается независимо.
+Количество блоков определяется ис
+Табличный подход**Т :
+Twiddle factors вычисляются заранее
+Масштабируемость**Масштаб :
+Алгоритм должен корректно работ
+
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <cuda_runtime.h>
+
+// Структура для комплексных чисел
+struct Complex {
+    float real;
+    float imag;
+};
+
+// Функция для вычисления twiddle factors
+void compute_twiddle_factors(Complex* twiddle, int N) {
+    for (int k = 0; k < N / 2; ++k) {
+        float angle = -2.0f * M_PI * k / N;
+        twiddle[k].real = cos(angle);
+        twiddle[k].imag = sin(angle);
+    }
+}
+
+// Ядро CUDA для выполнения одной стадии FFT
+__global__ void fft_stage_kernel(Complex* data, const Complex* twiddle, int N, int stage) {
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    int stride = 1 << stage; // Размер текущего блока
+    int half_stride = stride / 2;
+
+    if (tid >= N / 2) return;
+
+    int i = (tid / half_stride) * stride + (tid % half_stride); // Индекс элемента
+    int j = i + half_stride;
+
+    // Вычисление индекса twiddle factor
+    int twiddle_index = (tid % half_stride) << (log2(N) - stage);
+
+    // Бабочка
+    Complex t = {data[j].real * twiddle[twiddle_index].real - data[j].imag * twiddle[twiddle_index].imag,
+                 data[j].real * twiddle[twiddle_index].imag + data[j].imag * twiddle[twiddle_index].real};
+
+    data[j].real = data[i].real - t.real;
+    data[j].imag = data[i].imag - t.imag;
+    data[i].real += t.real;
+    data[i].imag += t.imag;
+}
+
+// Функция для выполнения FFT на GPU
+void fft_gpu(const std::vector<Complex>& input, std::vector<Complex>& output, int N) {
+    // Получение свойств устройства
+    cudaDeviceProp prop;
+    cudaGetDeviceProperties(&prop, 0);
+    int max_threads_per_block = prop.maxThreadsPerBlock;
+
+    // Выделение памяти на GPU
+    Complex* d_data;
+    Complex* d_twiddle;
+    cudaMalloc(&d_data, N * sizeof(Complex));
+    cudaMalloc(&d_twiddle, (N / 2) * sizeof(Complex));
+
+    // Передача входных данных на GPU
+    cudaMemcpy(d_data, input.data(), N * sizeof(Complex), cudaMemcpyHostToDevice);
+
+    // Вычисление и передача twiddle factors на GPU
+    std::vector<Complex> twiddle(N / 2);
+    compute_twiddle_factors(twiddle.data(), N);
+    cudaMemcpy(d_twiddle, twiddle.data(), (N / 2) * sizeof(Complex), cudaMemcpyHostToDevice);
+
+    // Выполнение FFT
+    for (int stage = 1; stage <= log2(N); ++stage) {
+        int threads_per_block = std::min(max_threads_per_block, N / 2);
+        int num_blocks = (N / 2 + threads_per_block - 1) / threads_per_block;
+
+        fft_stage_kernel<<<num_blocks, threads_per_block>>>(d_data, d_twiddle, N, stage);
+        cudaDeviceSynchronize(); // Ожидание завершения ядра
+    }
+
+    // Копирование результата обратно на CPU
+    cudaMemcpy(output.data(), d_data, N * sizeof(Complex), cudaMemcpyDeviceToHost);
+
+    // Освобождение памяти на GPU
+    cudaFree(d_data);
+    cudaFree(d_twiddle);
+}
+
+int main() {
+    int N = 1 << 24; // Размер FFT (16M точек)
+    std::vector<Complex> input(N);
+    std::vector<Complex> output(N);
+
+    // Инициализация входных данных
+    for (int i = 0; i < N; ++i) {
+        input[i].real = static_cast<float>(rand()) / RAND_MAX;
+        input[i].imag = static_cast<float>(rand()) / RAND_MAX;
+    }
+
+    // Выполнение FFT на GPU
+    fft_gpu(input, output, N);
+
+    // Вывод первых нескольких значений результата
+    for (int i = 0; i < 10; ++i) {
+        std::cout << "Output[" << i << "] = (" << output[i].real << ", " << output[i].imag << ")\n";
+    }
+
+    return 0;
+}
+
+
+Факторы поворота :
+Twiddle factors вычисляются заранее на CPU и передаются на GPU.
+Ядро CUDA :
+Ядро fft_stage_kernel выполняет одну стадию FFT (один уровень бабочек).
+Каждый поток обрабатывает одну бабочку. Расчет индексов и применение коэффициентов вращения выполняются внутри ядра.
+Распределение работы :
+Размер блока (threads_per_block) выбирается как минимальное значение между maxThreadsPerBlock и количеством элементов, которые необходимо обработать.
+Количество блоков (num_blocks) рассчитывается на основе размера данных и размера блока.
+Синхронизация :
+После каждого этапа вызывается cudaDeviceSynchronize, чтобы гарантировать завершение всех операций перед началом следующего этапа.
+Передача данных :
+Исходные данные копируются на GPU перед началом вычислений, а результат копируется обратно на CPU.
+
+//=============================================================================
+
+перепиши алгоритм с учетом того, что размер данных может превышать объем доступной памяти GPU, с учетом балансировки нагрузки, оптимизацией использования ресурсов, оптимизацией используемых типов в зависимости от поддерживаемых типов GPU
+
+:Разбиение данных :
+Данные разбиваются на фрагменты, каждый из которых помещается в память GPU.
+Размер фрагмента выбира
+Обработка каждого фрагмента :
+Каждый фрагмент загруж
+Сборка результата**Сборка результата :
+После обработки всех фрагментов результаты собираются на CPU.
+Оптимизация типов данных :
+Используются типы данных, поддерживаемые GPU (например, float вместо double, если это возможно).
+Для хранения комплексных чисел используется структура, оптимизированная для GPU.
+Балансировка нагрузки :
+Размер блока (threads_per_block) выбирается
+Количество
+
+
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <cuda_runtime.h>
+
+// Структура для комплексных чисел
+struct __align__(8) Complex {
+    float real;
+    float imag;
+};
+
+// Функция для вычисления twiddle factors
+void compute_twiddle_factors(Complex* twiddle, int N) {
+    for (int k = 0; k < N / 2; ++k) {
+        float angle = -2.0f * M_PI * k / N;
+        twiddle[k].real = cos(angle);
+        twiddle[k].imag = sin(angle);
+    }
+}
+
+// Ядро CUDA для выполнения одной стадии FFT
+__global__ void fft_stage_kernel(Complex* data, const Complex* twiddle, int N, int stage) {
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    int stride = 1 << stage; // Размер текущего блока
+    int half_stride = stride / 2;
+
+    if (tid >= N / 2) return;
+
+    int i = (tid / half_stride) * stride + (tid % half_stride); // Индекс элемента
+    int j = i + half_stride;
+
+    // Вычисление индекса twiddle factor
+    int twiddle_index = (tid % half_stride) << (log2(N) - stage);
+
+    // Бабочка
+    Complex t = {data[j].real * twiddle[twiddle_index].real - data[j].imag * twiddle[twiddle_index].imag,
+                 data[j].real * twiddle[twiddle_index].imag + data[j].imag * twiddle[twiddle_index].real};
+
+    data[j].real = data[i].real - t.real;
+    data[j].imag = data[i].imag - t.imag;
+    data[i].real += t.real;
+    data[i].imag += t.imag;
+}
+
+// Функция для выполнения FFT на GPU для одного фрагмента данных
+void fft_gpu_chunk(const std::vector<Complex>& input_chunk, std::vector<Complex>& output_chunk, int chunk_size) {
+    // Получение свойств устройства
+    cudaDeviceProp prop;
+    cudaGetDeviceProperties(&prop, 0);
+    int max_threads_per_block = prop.maxThreadsPerBlock;
+
+    // Выделение памяти на GPU
+    Complex* d_data;
+    Complex* d_twiddle;
+    cudaMalloc(&d_data, chunk_size * sizeof(Complex));
+    cudaMalloc(&d_twiddle, (chunk_size / 2) * sizeof(Complex));
+
+    // Передача входных данных на GPU
+    cudaMemcpy(d_data, input_chunk.data(), chunk_size * sizeof(Complex), cudaMemcpyHostToDevice);
+
+    // Вычисление и передача twiddle factors на GPU
+    std::vector<Complex> twiddle(chunk_size / 2);
+    compute_twiddle_factors(twiddle.data(), chunk_size);
+    cudaMemcpy(d_twiddle, twiddle.data(), (chunk_size / 2) * sizeof(Complex), cudaMemcpyHostToDevice);
+
+    // Выполнение FFT
+    for (int stage = 1; stage <= log2(chunk_size); ++stage) {
+        int threads_per_block = std::min(max_threads_per_block, chunk_size / 2);
+        int num_blocks = (chunk_size / 2 + threads_per_block - 1) / threads_per_block;
+
+        fft_stage_kernel<<<num_blocks, threads_per_block>>>(d_data, d_twiddle, chunk_size, stage);
+        cudaDeviceSynchronize(); // Ожидание завершения ядра
+    }
+
+    // Копирование результата обратно на CPU
+    cudaMemcpy(output_chunk.data(), d_data, chunk_size * sizeof(Complex), cudaMemcpyDeviceToHost);
+
+    // Освобождение памяти на GPU
+    cudaFree(d_data);
+    cudaFree(d_twiddle);
+}
+
+// Функция для выполнения FFT на GPU для больших данных
+void fft_large_data(const std::vector<Complex>& input, std::vector<Complex>& output, int N) {
+    // Получение информации о доступной памяти GPU
+    size_t free_memory, total_memory;
+    cudaMemGetInfo(&free_memory, &total_memory);
+
+    // Вычисление максимального размера фрагмента
+    size_t max_chunk_size = free_memory / sizeof(Complex) / 2; // Зарезервируем половину памяти для других нужд
+    max_chunk_size = pow(2, floor(log2(max_chunk_size))); // Округляем до ближайшей степени двойки
+
+    // Разбиение данных на фрагменты
+    int num_chunks = (N + max_chunk_size - 1) / max_chunk_size;
+
+    for (int i = 0; i < num_chunks; ++i) {
+        int start = i * max_chunk_size;
+        int chunk_size = std::min(max_chunk_size, N - start);
+
+        // Выделение фрагмента данных
+        std::vector<Complex> input_chunk(input.begin() + start, input.begin() + start + chunk_size);
+        std::vector<Complex> output_chunk(chunk_size);
+
+        // Обработка фрагмента на GPU
+        fft_gpu_chunk(input_chunk, output_chunk, chunk_size);
+
+        // Сохранение результата
+        std::copy(output_chunk.begin(), output_chunk.end(), output.begin() + start);
+    }
+}
+
+int main() {
+    int N = 1 << 28; // Размер FFT (268M точек)
+    std::vector<Complex> input(N);
+    std::vector<Complex> output(N);
+
+    // Инициализация входных данных
+    for (int i = 0; i < N; ++i) {
+        input[i].real = static_cast<float>(rand()) / RAND_MAX;
+        input[i].imag = static_cast<float>(rand()) / RAND_MAX;
+    }
+
+    // Выполнение FFT на GPU
+    fft_large_data(input, output, N);
+
+    // Вывод первых нескольких значений результата
+    for (int i = 0; i < 10; ++i) {
+        std::cout << "Output[" << i << "] = (" << output[i].real << ", " << output[i].imag << ")\n";
+    }
+
+    return 0;
+}
+
+Разбиение данных :
+Размер фрагмента (max_chunk_size) вычисляется на основе доступной памяти GPU.
+Данные разбиваются на фрагменты, каждый из которых обрабатывается независимо.
+Обработка фрагмента**Обработка фрагмента :
+Каждый фрагмент загружается на GPU, обрабатывается и результат сохраняется.
+Оптимизация типов данных :
+Используется тип float для экономии памяти.
+Комплексные числа выровнены по 8 байт (`__align__(8)), что улучшает
+Балансировка нагрузки :
+Размер блока выбирается в зависимости от характеристик GPU.
+Количество блоков рассчитывается
+Сборка результата :
+Результаты обработки фрагментов собираются в один массив на CPU.
+
+Особенности:
+Ограничение памяти :
+Размер фрагмента выбирается так, чтобы он помещался в доступную память GPU.
+Масштабируемость :
+Алгоритм может работать с данными любого размера, ограничен
+Оптимизация :
+Использование float вместо double у
+Выравнивание данных улучшает производительность на GPU.
+
+//==============================================================================
+
+перепиши этот код для float16, float8, float4, float2
+
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <cuda_runtime.h>
+
+// Поддержка float16
+#include <cuda_fp16.h>
+
+// Структура для комплексных чисел с пониженной точностью
+struct __align__(8) ComplexFP16 {
+    __half real;
+    __half imag;
+};
+
+struct __align__(4) ComplexFP8 {
+    uint8_t real;
+    uint8_t imag;
+};
+
+struct __align__(2) ComplexFP4 {
+    uint8_t real : 4;
+    uint8_t imag : 4;
+};
+
+struct __align__(2) ComplexFP2 {
+    uint8_t real : 2;
+    uint8_t imag : 2;
+};
+
+// Функция для вычисления twiddle factors для float16
+void compute_twiddle_factors_fp16(ComplexFP16* twiddle, int N) {
+    for (int k = 0; k < N / 2; ++k) {
+        float angle = -2.0f * M_PI * k / N;
+        twiddle[k].real = __float2half(cos(angle));
+        twiddle[k].imag = __float2half(sin(angle));
+    }
+}
+
+// Ядро CUDA для выполнения одной стадии FFT (float16)
+__global__ void fft_stage_kernel_fp16(ComplexFP16* data, const ComplexFP16* twiddle, int N, int stage) {
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    int stride = 1 << stage; // Размер текущего блока
+    int half_stride = stride / 2;
+
+    if (tid >= N / 2) return;
+
+    int i = (tid / half_stride) * stride + (tid % half_stride); // Индекс элемента
+    int j = i + half_stride;
+
+    // Вычисление индекса twiddle factor
+    int twiddle_index = (tid % half_stride) << (log2(N) - stage);
+
+    // Бабочка
+    ComplexFP16 t = {
+        __hmul(data[j].real, twiddle[twiddle_index].real) - __hmul(data[j].imag, twiddle[twiddle_index].imag),
+        __hmul(data[j].real, twiddle[twiddle_index].imag) + __hmul(data[j].imag, twiddle[twiddle_index].real)
+    };
+
+    data[j].real = __hsub(data[i].real, t.real);
+    data[j].imag = __hsub(data[i].imag, t.imag);
+    data[i].real = __hadd(data[i].real, t.real);
+    data[i].imag = __hadd(data[i].imag, t.imag);
+}
+
+// Функция для выполнения FFT на GPU для одного фрагмента данных (float16)
+void fft_gpu_chunk_fp16(const std::vector<ComplexFP16>& input_chunk, std::vector<ComplexFP16>& output_chunk, int chunk_size) {
+    // Получение свойств устройства
+    cudaDeviceProp prop;
+    cudaGetDeviceProperties(&prop, 0);
+    int max_threads_per_block = prop.maxThreadsPerBlock;
+
+    // Выделение памяти на GPU
+    ComplexFP16* d_data;
+    ComplexFP16* d_twiddle;
+    cudaMalloc(&d_data, chunk_size * sizeof(ComplexFP16));
+    cudaMalloc(&d_twiddle, (chunk_size / 2) * sizeof(ComplexFP16));
+
+    // Передача входных данных на GPU
+    cudaMemcpy(d_data, input_chunk.data(), chunk_size * sizeof(ComplexFP16), cudaMemcpyHostToDevice);
+
+    // Вычисление и передача twiddle factors на GPU
+    std::vector<ComplexFP16> twiddle(chunk_size / 2);
+    compute_twiddle_factors_fp16(twiddle.data(), chunk_size);
+    cudaMemcpy(d_twiddle, twiddle.data(), (chunk_size / 2) * sizeof(ComplexFP16), cudaMemcpyHostToDevice);
+
+    // Выполнение FFT
+    for (int stage = 1; stage <= log2(chunk_size); ++stage) {
+        int threads_per_block = std::min(max_threads_per_block, chunk_size / 2);
+        int num_blocks = (chunk_size / 2 + threads_per_block - 1) / threads_per_block;
+
+        fft_stage_kernel_fp16<<<num_blocks, threads_per_block>>>(d_data, d_twiddle, chunk_size, stage);
+        cudaDeviceSynchronize(); // Ожидание завершения ядра
+    }
+
+    // Копирование результата обратно на CPU
+    cudaMemcpy(output_chunk.data(), d_data, chunk_size * sizeof(ComplexFP16), cudaMemcpyDeviceToHost);
+
+    // Освобождение памяти на GPU
+    cudaFree(d_data);
+    cudaFree(d_twiddle);
+}
+
+// Аналогичные функции для float8, float4, float2 можно реализовать аналогично,
+// используя битовые операции для представления данных.
+
+int main() {
+    int N = 1 << 24; // Размер FFT (16M точек)
+    std::vector<ComplexFP16> input(N);
+    std::vector<ComplexFP16> output(N);
+
+    // Инициализация входных данных
+    for (int i = 0; i < N; ++i) {
+        input[i].real = __float2half(static_cast<float>(rand()) / RAND_MAX);
+        input[i].imag = __float2half(static_cast<float>(rand()) / RAND_MAX);
+    }
+
+    // Выполнение FFT на GPU
+    fft_large_data_fp16(input, output, N);
+
+    // Вывод первых нескольких значений результата
+    for (int i = 0; i < 10; ++i) {
+        std::cout << "Output[" << i << "] = (" << __half2float(output[i].real) << ", " << __half2float(output[i].imag) << ")\n";
+    }
+
+    return 0;
+}
+
+Типы данных :
+Для float16 используется тип __half из CUDA.
+Для float8, float4, float2 используются пользовательские структуры с битовыми полями.
+Факторы поворота :
+Коэффициенты Twiddle вычисляются с использованием стандартных функций (cos, sin) и преобразуются в __half.
+Ядро CUDA :
+Ядро выполняет операции с типом __half с помощью специальных функций CUDA (__hmul, __hadd, __hsub).
+Разбиение данных :
+Данные разбиваются на фрагменты, каждый из которых обрабатывается независимо.
+Сборка результата :
+Результаты обработки фрагментов собираются на CPU.
+
+//============================================================================
+
+объясни код ядра
+
+__global__ void fft_stage_kernel_fp16(ComplexFP16* data, const ComplexFP16* twiddle, int N, int stage) {
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    int stride = 1 << stage; // Размер текущего блока
+    int half_stride = stride / 2;
+
+    if (tid >= N / 2) return;
+
+    int i = (tid / half_stride) * stride + (tid % half_stride); // Индекс элемента
+    int j = i + half_stride;
+
+    // Вычисление индекса twiddle factor
+    int twiddle_index = (tid % half_stride) << (log2(N) - stage);
+
+    // Бабочка
+    ComplexFP16 t = {
+        __hmul(data[j].real, twiddle[twiddle_index].real) - __hmul(data[j].imag, twiddle[twiddle_index].imag),
+        __hmul(data[j].real, twiddle[twiddle_index].imag) + __hmul(data[j].imag, twiddle[twiddle_index].real)
+    };
+
+    data[j].real = __hsub(data[i].real, t.real);
+    data[j].imag = __hsub(data[i].imag, t.imag);
+    data[i].real = __hadd(data[i].real, t.real);
+    data[i].imag = __hadd(data[i].imag, t.imag);
+}
+
+ Объяснение кода по шагам:
+1. Индексация потоков
+cpp
+
+
+1
+int tid = blockIdx.x * blockDim.x + threadIdx.x;
+blockIdx.x: Номер текущего блока.
+blockDim.x: Количество потоков в бл
+threadIdx.x: Номер текущего потока внутри блока.
+tid — глобальный ин
+2. Проверка границ
+
+
+if (tid >= N / 2) return;
+
+Если индекс потока выходит за пределы массива данных, поток завершает выполнение. Это необходимо для предотвращения доступа к несуществующим элементам массива.
+
+3. Расчет индексов элементов
+
+int stride = 1 << stage; // Размер текущего блока
+int half_stride = stride / 2;
+
+int i = (tid / half_stride) * stride + (tid % half_stride); // Индекс элемента
+int j = i + half_stride;
+
+stride — размер текущего блока
+half_stride — половина размера блока.
+i и j — индексы двух элементов, участвующих в операции «бабочка».
+
+4. Вычисление индекса twiddle factor
+
+int twiddle_index = (tid % half_stride) << (log2(N) - stage);
+
+Twiddle factors — это комплекс
+twiddle_index вычисляется на основе текущей стадии и позиции потока. Он указывает на соответствующий коэффициент вращения в массиве.
+
+
+5. **ООперация "бабочка"
+
+ComplexFP16 t = {
+    __hmul(data[j].real, twiddle[twiddle_index].real) - __hmul(data[j].imag, twiddle[twiddle_index].imag),
+    __hmul(data[j].real, twiddle[twiddle_index].imag) + __hmul(data[j].imag, twiddle[twiddle_index].real)
+};
+
+Операция "бабочка" выполняет след
+Уdata[j] на соответствующий twiddle factor. 2
+Разделение р
+Для работы с `floatfloat16 используются специальные функции
+__hmul: Умножение двух чис__half.
+__hsub: Вычитание двух чисел типа __half.
+__hadd: Сложение двух чисел типа __half.
+
+
+6. Обновление данных
+
+data[j].real = __hsub(data[i].real, t.real);
+data[j].imag = __hsub(data[i].imag, t.imag);
+data[i].real = __hadd(data[i].real, t.real);
+data[i].imag = __hadd(data[i].imag, t.imag);
+
+Результат операции «бабочка» записывается обратно в массив данных:
+
+Элемент data[j] обновляется как разница между data[i] и результатом умножения на коэффициент twiddle.
+Элемент data[i] обновляется как сумма между data[i] и результатом умножения на коэффициент поворота.
+
+
+Почему это важно?
+Параллелизм :
+Каждый поток CUDA выполняет операцию «бабочка» для своей пары элементов. Это позволяет выполнять вычисления параллельно на всех доступных ядрах CUDA.
+Эффективность :
+Использование float16 и специальных функций CUDA (__hmul, __hadd, __hsub) позволяет эффективно использовать ресурсы графического процессора и минимизировать использование памяти.
+Масштабируемость :
+Алгоритм автоматически адаптируется к размеру данных и характеристикам графического процессора благодаря динамическому распределению потоков.
+
+Предположим, что:
+
+Размер данных N = 8.
+Текущая стадия stage = 2.
+Тогда:
+
+stride = 4, half_stride = 2.
+Потоки будут обрабатывать пары элементов:
+Поток 0: (i, j) = (0, 2)
+Поток 1: (i, j) = (1, 3)
+Поток 2: (i, j) = (4, 6)
+Поток 3: (i, j) = (5, 7)
+Каждый поток выполнит операцию «бабочка» для своей пары элементов.
+
+Ответ:
+Ядро CUDA выполняет операцию «бабочка» для одного этапа FFT. Оно использует специальные функции CUDA для работы с типами данных с пониженной точностью (float16). Каждый поток обрабатывает свою пару элементов, что позволяет эффективно использовать параллелизм графического процессора.
+//===========================================================================
+
+модифицируй алгоритм для использования максимально большого векторного типа данных, максимального доступного объема памяти на GPU
+
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <cuda_runtime.h>
+
+// Векторный тип данных для комплексных чисел
+struct __align__(16) ComplexFP4 {
+    float4 real_imag; // real = x, imag = y для двух комплексных чисел
+};
+
+// Функция для вычисления twiddle factors для float4
+void compute_twiddle_factors_fp4(ComplexFP4* twiddle, int N) {
+    for (int k = 0; k < N / 4; ++k) {
+        float angle1 = -2.0f * M_PI * (2 * k) / N;
+        float angle2 = -2.0f * M_PI * (2 * k + 1) / N;
+
+        twiddle[k].real_imag.x = cos(angle1); // real1
+        twiddle[k].real_imag.y = sin(angle1); // imag1
+        twiddle[k].real_imag.z = cos(angle2); // real2
+        twiddle[k].real_imag.w = sin(angle2); // imag2
+    }
+}
+
+// Ядро CUDA для выполнения одной стадии FFT (float4)
+__global__ void fft_stage_kernel_fp4(ComplexFP4* data, const ComplexFP4* twiddle, int N, int stage) {
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    int stride = 1 << stage; // Размер текущего блока
+    int half_stride = stride / 2;
+
+    if (tid >= N / 4) return;
+
+    int i = (tid / half_stride) * stride + (tid % half_stride); // Индекс элемента
+    int j = i + half_stride;
+
+    // Вычисление индекса twiddle factor
+    int twiddle_index = (tid % half_stride) << (log2(N) - stage);
+
+    // Бабочка для двух комплексных чисел
+    float4 t1, t2;
+
+    // Первое комплексное число
+    t1.x = data[j].real_imag.x * twiddle[twiddle_index].real_imag.x - data[j].real_imag.y * twiddle[twiddle_index].real_imag.y;
+    t1.y = data[j].real_imag.x * twiddle[twiddle_index].real_imag.y + data[j].real_imag.y * twiddle[twiddle_index].real_imag.x;
+
+    // Второе комплексное число
+    t2.x = data[j].real_imag.z * twiddle[twiddle_index].real_imag.z - data[j].real_imag.w * twiddle[twiddle_index].real_imag.w;
+    t2.y = data[j].real_imag.z * twiddle[twiddle_index].real_imag.w + data[j].real_imag.w * twiddle[twiddle_index].real_imag.z;
+
+    // Обновление данных
+    data[j].real_imag.x = data[i].real_imag.x - t1.x;
+    data[j].real_imag.y = data[i].real_imag.y - t1.y;
+    data[i].real_imag.x += t1.x;
+    data[i].real_imag.y += t1.y;
+
+    data[j].real_imag.z = data[i].real_imag.z - t2.x;
+    data[j].real_imag.w = data[i].real_imag.w - t2.y;
+    data[i].real_imag.z += t2.x;
+    data[i].real_imag.w += t2.y;
+}
+
+// Функция для выполнения FFT на GPU для одного фрагмента данных (float4)
+void fft_gpu_chunk_fp4(const std::vector<ComplexFP4>& input_chunk, std::vector<ComplexFP4>& output_chunk, int chunk_size) {
+    // Получение свойств устройства
+    cudaDeviceProp prop;
+    cudaGetDeviceProperties(&prop, 0);
+    int max_threads_per_block = prop.maxThreadsPerBlock;
+
+    // Выделение памяти на GPU
+    ComplexFP4* d_data;
+    ComplexFP4* d_twiddle;
+    cudaMalloc(&d_data, chunk_size * sizeof(ComplexFP4));
+    cudaMalloc(&d_twiddle, (chunk_size / 4) * sizeof(ComplexFP4));
+
+    // Передача входных данных на GPU
+    cudaMemcpy(d_data, input_chunk.data(), chunk_size * sizeof(ComplexFP4), cudaMemcpyHostToDevice);
+
+    // Вычисление и передача twiddle factors на GPU
+    std::vector<ComplexFP4> twiddle(chunk_size / 4);
+    compute_twiddle_factors_fp4(twiddle.data(), chunk_size);
+    cudaMemcpy(d_twiddle, twiddle.data(), (chunk_size / 4) * sizeof(ComplexFP4), cudaMemcpyHostToDevice);
+
+    // Выполнение FFT
+    for (int stage = 1; stage <= log2(chunk_size); ++stage) {
+        int threads_per_block = std::min(max_threads_per_block, chunk_size / 4);
+        int num_blocks = (chunk_size / 4 + threads_per_block - 1) / threads_per_block;
+
+        fft_stage_kernel_fp4<<<num_blocks, threads_per_block>>>(d_data, d_twiddle, chunk_size, stage);
+        cudaDeviceSynchronize(); // Ожидание завершения ядра
+    }
+
+    // Копирование результата обратно на CPU
+    cudaMemcpy(output_chunk.data(), d_data, chunk_size * sizeof(ComplexFP4), cudaMemcpyDeviceToHost);
+
+    // Освобождение памяти на GPU
+    cudaFree(d_data);
+    cudaFree(d_twiddle);
+}
+
+// Функция для выполнения FFT на GPU для больших данных
+void fft_large_data_fp4(const std::vector<ComplexFP4>& input, std::vector<ComplexFP4>& output, int N) {
+    // Получение информации о доступной памяти GPU
+    size_t free_memory, total_memory;
+    cudaMemGetInfo(&free_memory, &total_memory);
+
+    // Вычисление максимального размера фрагмента
+    size_t max_chunk_size = free_memory / sizeof(ComplexFP4) / 2; // Зарезервируем половину памяти для других нужд
+    max_chunk_size = pow(2, floor(log2(max_chunk_size))); // Округляем до ближайшей степени двойки
+
+    // Разбиение данных на фрагменты
+    int num_chunks = (N + max_chunk_size - 1) / max_chunk_size;
+
+    for (int i = 0; i < num_chunks; ++i) {
+        int start = i * max_chunk_size;
+        int chunk_size = std::min(max_chunk_size, N - start);
+
+        // Выделение фрагмента данных
+        std::vector<ComplexFP4> input_chunk(input.begin() + start, input.begin() + start + chunk_size);
+        std::vector<ComplexFP4> output_chunk(chunk_size);
+
+        // Обработка фрагмента на GPU
+        fft_gpu_chunk_fp4(input_chunk, output_chunk, chunk_size);
+
+        // Сохранение результата
+        std::copy(output_chunk.begin(), output_chunk.end(), output.begin() + start);
+    }
+}
+
+int main() {
+    int N = 1 << 24; // Размер FFT (16M точек)
+    std::vector<ComplexFP4> input(N / 2); // Каждый ComplexFP4 хранит два комплексных числа
+    std::vector<ComplexFP4> output(N / 2);
+
+    // Инициализация входных данных
+    for (int i = 0; i < N / 2; ++i) {
+        input[i].real_imag.x = static_cast<float>(rand()) / RAND_MAX; // real1
+        input[i].real_imag.y = static_cast<float>(rand()) / RAND_MAX; // imag1
+        input[i].real_imag.z = static_cast<float>(rand()) / RAND_MAX; // real2
+        input[i].real_imag.w = static_cast<float>(rand()) / RAND_MAX; // imag2
+    }
+
+    // Выполнение FFT на GPU
+    fft_large_data_fp4(input, output, N);
+
+    // Вывод первых нескольких значений результата
+    for (int i = 0; i < 10; ++i) {
+        std::cout << "Output[" << i << "] = ("
+                  << output[i].real_imag.x << ", " << output[i].real_imag.y << "), ("
+                  << output[i].real_imag.z << ", " << output[i].real_imag.w << ")\n";
+    }
+
+    return 0;
+}
+
+//==============================================================================
+
+Чтобы автоматически определить, на чём быстрее выполнить табличное БПФ (на CPU или GPU), используя OpenCL, необходимо:
+
+:Определить характеристики CPU :
+Получить информацию о модели процессора.
+Оценить производ
+Определить характеристики GPU :
+Проверить доступность GPU
+Оценить производительность графического процессора (например, по количеству вычислительных блоков и тактовой частоте).
+Оценить текущую загрузку CPU/GPU :
+Использовать систем
+Реализовать алгоритм выбора :
+Сравнить производительность CPU и GPU с учетом их текущей загрузки.
+Выбрать устройство с наименьшим прогнозируемым временем выполн
+
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <chrono>
+#include <thread>
+#include <CL/cl.hpp>
+
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+
+// Функция для получения загрузки CPU (в процентах)
+float get_cpu_usage() {
+    // Реализация зависит от платформы
+#ifdef _WIN32
+    FILETIME idleTime, kernelTime, userTime;
+    GetSystemTimes(&idleTime, &kernelTime, &userTime);
+
+    ULARGE_INTEGER idle, kernel, user;
+    idle.LowPart = idleTime.dwLowDateTime;
+    idle.HighPart = idleTime.dwHighDateTime;
+
+    kernel.LowPart = kernelTime.dwLowDateTime;
+    kernel.HighPart = kernelTime.dwHighDateTime;
+
+    user.LowPart = userTime.dwLowDateTime;
+    user.HighPart = userTime.dwHighDateTime;
+
+    uint64_t total = (kernel.QuadPart - idle.QuadPart) + user.QuadPart;
+    uint64_t idleTotal = idle.QuadPart;
+
+    static uint64_t previousTotal = 0;
+    static uint64_t previousIdle = 0;
+
+    uint64_t diffTotal = total - previousTotal;
+    uint64_t diffIdle = idleTotal - previousIdle;
+
+    previousTotal = total;
+    previousIdle = idleTotal;
+
+    return (1.0f - (float)diffIdle / diffTotal) * 100.0f;
+#else
+    std::ifstream stat_file("/proc/stat");
+    std::string line;
+    std::getline(stat_file, line);
+    stat_file.close();
+
+    std::istringstream iss(line);
+    std::string cpu_label;
+    long user, nice, system, idle, iowait, irq, softirq, steal, guest, guest_nice;
+    iss >> cpu_label >> user >> nice >> system >> idle >> iowait >> irq >> softirq >> steal >> guest >> guest_nice;
+
+    static long prev_idle = 0, prev_total = 0;
+    long curr_idle = idle + iowait;
+    long curr_total = user + nice + system + idle + iowait + irq + softirq + steal;
+
+    long diff_idle = curr_idle - prev_idle;
+    long diff_total = curr_total - prev_total;
+
+    prev_idle = curr_idle;
+    prev_total = curr_total;
+
+    return (1.0f - (float)diff_idle / diff_total) * 100.0f;
+#endif
+}
+
+// Функция для получения информации об устройствах OpenCL
+std::vector<cl::Device> get_opencl_devices() {
+    std::vector<cl::Platform> platforms;
+    cl::Platform::get(&platforms);
+
+    std::vector<cl::Device> devices;
+    for (const auto& platform : platforms) {
+        std::vector<cl::Device> platform_devices;
+        platform.getDevices(CL_DEVICE_TYPE_ALL, &platform_devices);
+        devices.insert(devices.end(), platform_devices.begin(), platform_devices.end());
+    }
+
+    return devices;
+}
+
+// Функция для оценки времени выполнения FFT на CPU
+double estimate_cpu_fft_time(size_t data_size, float cpu_usage) {
+    const float cpu_performance = 10.0f; // Производительность CPU (GFLOPS), примерное значение
+    const float load_factor = 1.0f + (cpu_usage / 100.0f); // Загрузка CPU влияет на время выполнения
+    double operations = 5.0 * data_size * log2(data_size); // Приблизительное количество операций для FFT
+    return operations / (cpu_performance * 1e9) * load_factor; // Время в секундах
+}
+
+// Функция для оценки времени выполнения FFT на GPU
+double estimate_gpu_fft_time(const cl::Device& device, size_t data_size) {
+    cl_uint compute_units;
+    device.getInfo(CL_DEVICE_MAX_COMPUTE_UNITS, &compute_units);
+
+    cl_ulong clock_frequency;
+    device.getInfo(CL_DEVICE_MAX_CLOCK_FREQUENCY, &clock_frequency);
+
+    float gpu_performance = compute_units * clock_frequency * 2.0f; // Производительность GPU (GFLOPS)
+    double operations = 5.0 * data_size * log2(data_size); // Приблизительное количество операций для FFT
+    return operations / (gpu_performance * 1e9); // Время в секундах
+}
+
+int main() {
+    size_t data_size = 1 << 20; // Размер данных для FFT (например, 1 млн точек)
+
+    // Получение информации о CPU
+    float cpu_usage = get_cpu_usage();
+    std::cout << "CPU Usage: " << cpu_usage << "%" << std::endl;
+
+    // Получение информации о GPU
+    std::vector<cl::Device> devices = get_opencl_devices();
+    bool gpu_available = !devices.empty();
+
+    if (gpu_available) {
+        std::cout << "Available OpenCL Devices:" << std::endl;
+        for (size_t i = 0; i < devices.size(); ++i) {
+            std::string name;
+            devices[i].getInfo(CL_DEVICE_NAME, &name);
+            std::cout << "Device " << i << ": " << name << std::endl;
+        }
+    } else {
+        std::cout << "No OpenCL devices available." << std::endl;
+    }
+
+    // Оценка времени выполнения на CPU и GPU
+    double cpu_time = estimate_cpu_fft_time(data_size, cpu_usage);
+    double gpu_time = gpu_available ? estimate_gpu_fft_time(devices[0], data_size) : INFINITY;
+
+    std::cout << "Estimated CPU FFT Time: " << cpu_time << " seconds" << std::endl;
+    std::cout << "Estimated GPU FFT Time: " << gpu_time << " seconds" << std::endl;
+
+    // Выбор устройства
+    if (gpu_time < cpu_time) {
+        std::cout << "Performing FFT on GPU." << std::endl;
+    } else {
+        std::cout << "Performing FFT on CPU." << std::endl;
+    }
+
+    return 0;
+}
+
+
+Загрузка CPU:Загрузка CPU :
+Функция `get_cpu_usage извлекает текущую загрузку ЦП в процентах (Windows/Linux).
+Информация об устройствах OpenCL :
+Функция get_opencl_devices получает список всех доступных устройств OpenCL (ЦП, ГП и т. д.).
+Оценка времени выполнения :
+Для CPU используется эмпирическая формула с учетом загрузки.
+Для GPU оценивается производительность через количество вычислительных единиц и тактовую частоту.
+Выбор устройства :
+Сравнивается время выполнения на CPU и GPU, и выбирается устройство с минимальным временем выполнения.
+
+
