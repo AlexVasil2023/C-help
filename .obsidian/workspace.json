@@ -63,8 +63,7 @@
               "title": "SFINAE"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -223,11 +222,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "d67f1e99ffea7417",
   "lastOpenFiles": [
+    "template/templates.md",
     "template/template Реализация свойств типов.md",
     "Содержание.md",
-    "template/templates.md",
     "template/SFINAE.md",
     "OpenCL Руководство программиста/OpenCL_P руководство программиста.md",
     "OpenCL Руководство программиста/OpenCL_P OpenCL язык и API.md",
