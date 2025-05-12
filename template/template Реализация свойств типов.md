@@ -17,6 +17,9 @@
 4. [[SFINAE#Свойства на основе SFINAE|Свойства на основе SFINAE]] 19.4
 	1. [[SFINAE#Принцип SFINAE и перегрузки функций|Принцип SFINAE и перегрузки функций]] 19.4.1
 	2. [[SFINAE#SFINAE и частичные специализации|SFINAE и частичные специализации]] 19.4.2
+	3. [[SFINAE#Применение обобщенных лямбда-выражений со SFINAE|Применение обобщенных лямбда-выражений со SFINAE]] 19.4.3
+	4. [[SFINAE#SFINAE и свойства|SFINAE и свойства]] 19.4.4
+5. [[template IsConvertibleT#IsConvertibleT|IsConvertibleT]] 19.5
 
 
 
@@ -1336,16 +1339,17 @@ using PlusResult = typename PlusResultT<T1, T2>::Type;
 
 [[SFINAE#SFINAE и частичные специализации|см. SFINAE и частичные специализации]]
 
+## Применение обобщенных лямбда-выражений со SFINAE
 
+[[SFINAE#Применение обобщенных лямбда-выражений со SFINAE|см. Применение обобщенных лямбда-выражений со SFINAE]]
 
+## SFINAE и свойства
 
+[[SFINAE#SFINAE и свойства|см. SFINAE и свойства]]
 
+# IsConvertibleT
 
-
-
-
-
-
+[[template IsConvertibleT#IsConvertibleT|см. IsConvertibleT]]
 
 
 
