@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -223,10 +223,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9709916f0f1027c0",
+  "active": "3b57539faa6fde7e",
   "lastOpenFiles": [
-    "template/Шаблоны классов.md",
     "template/Обнаружение членов.MD",
+    "template/Шаблоны классов.md",
     "template/templates.md",
     "Содержание.md",
     "template/Реализация свойств типов - template.md",
