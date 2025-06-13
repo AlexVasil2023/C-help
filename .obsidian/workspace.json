@@ -225,10 +225,10 @@
   },
   "active": "74ae72e5cafe8464",
   "lastOpenFiles": [
-    "Содержание.md",
-    "template/Реализация свойств типов - template.md",
     "template/templates.md",
     "template/Обнаружение членов.MD",
+    "Содержание.md",
+    "template/Реализация свойств типов - template.md",
     "template/IsConvertibleT.md",
     "template/SFINAE.md",
     "template/Семантика перемещения - Отключение шаблонов с помощью enable_if - template.md",
