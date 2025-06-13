@@ -223,12 +223,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "74ae72e5cafe8464",
+  "active": "9709916f0f1027c0",
   "lastOpenFiles": [
-    "template/templates.md",
+    "template/Шаблоны классов.md",
     "template/Обнаружение членов.MD",
+    "template/templates.md",
     "Содержание.md",
     "template/Реализация свойств типов - template.md",
+    "STL/Template_STL.md",
     "template/IsConvertibleT.md",
     "template/SFINAE.md",
     "template/Семантика перемещения - Отключение шаблонов с помощью enable_if - template.md",
@@ -261,8 +263,6 @@
     "Parallel Programming/Вычисление суммы элементов вектора.md",
     "Meyers Effective modern c++/Lambda.md",
     "image/OpenCL_1.png",
-    "OpenCL/OpenCL Язык для написания ядер.md",
-    "OpenCL/clEnqueueTask.md",
     "template/шаблоны Дальнейшее развитие",
     "template/gl-значение.ьв",
     "template/Семантика перемещения - .txt",
