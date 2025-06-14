@@ -209,7 +209,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "751e89b518decb40",
+  "active": "9709916f0f1027c0",
   "lastOpenFiles": [
     "template/templates.md",
     "Содержание.md",
@@ -222,14 +222,14 @@
     "template/IsConvertibleT.md",
     "template/Семантика перемещения - Отключение шаблонов с помощью enable_if - template.md",
     "template/Семантика перемещения - Использование enable_if - template.md",
-    "template/Нетиповые параметры шаблонов - template.md",
+    "template/Нетиповые параметры шаблонов.md",
     "template/Использование this - template.md",
-    "template/Инстанцирование в шаблонах - template.md",
-    "template/Имена в шаблонах - template.md",
+    "template/Инстанцирование в шаблонах.md",
+    "template/Имена в шаблонах.md",
     "template/значение - template.md",
     "template/Дальнейшее развитие - template.md",
-    "template/Вывод аргументов шаблона - template.md",
-    "template/Вариативные шаблоны - template.md",
+    "template/Вывод аргументов шаблона.md",
+    "template/Вариативные шаблоны.md",
     "OpenCL Руководство программиста/OpenCL_P руководство программиста.md",
     "OpenCL Руководство программиста/OpenCL_P OpenCL язык и API.md",
     "image/OpenCL_P_8.png",
