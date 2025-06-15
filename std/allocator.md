@@ -1,5 +1,6 @@
 
 [[#std allocator|Аллокаторы]] (12.7 STL)
+[[#std allocator_traits|std::allocator_traits]]
 
 # std::allocator
 
@@ -66,7 +67,7 @@ void producer()
 
 
 
-
+# std::allocator_traits
 
 
 

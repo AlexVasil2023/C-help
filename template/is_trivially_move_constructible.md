@@ -1,0 +1,2 @@
+# std::is_trivially_move_constructible
+#std_is_trivially_move_constructible
