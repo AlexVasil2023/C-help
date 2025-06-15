@@ -209,12 +209,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9709916f0f1027c0",
+  "active": "e6b3e3b43bf914dd",
   "lastOpenFiles": [
-    "template/r-значение.md",
+    "template/templates.md",
     "template/Перегрузка свойств типов.md",
     "Содержание.md",
-    "template/templates.md",
+    "template/bidirectional_iterator_tag.md",
+    "template/По значению или по ссылке.md",
+    "template/r-значение.md",
     "template/random_access_iterator_tag.md",
     "template/input_iterator_tag.md",
     "template/advance.md",
@@ -235,8 +237,6 @@
     "lvalue.md",
     "template/is_member_function_pointer.md",
     "template/is_member_object_pointer.md",
-    "template/extent.md",
-    "template/rank.md",
     "image/OpenCL_P_8.png",
     "image/OpenCL_p_8.png",
     "image/OpenCL_P_7.png",
