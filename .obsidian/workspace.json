@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -209,12 +209,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "9ba4677e30a0997d",
   "lastOpenFiles": [
+    "template/templates.md",
     "template/Шаблоны и наследование.md",
     "image/template_9.png",
     "Содержание.md",
-    "template/templates.md",
     "template/Миксины.md",
     "template/BaseMemberPair.md",
     "image/template_8.png",
