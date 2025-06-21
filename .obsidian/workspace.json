@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -209,11 +209,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9ba4677e30a0997d",
+  "active": "3b57539faa6fde7e",
   "lastOpenFiles": [
+    "template/Шаблоны и наследование.md",
+    "image/template_9.png",
     "Содержание.md",
     "template/templates.md",
-    "template/Шаблоны и наследование.md",
+    "template/Миксины.md",
     "template/BaseMemberPair.md",
     "image/template_8.png",
     "image/template_7.png",
@@ -238,15 +240,12 @@
     "std/allocator.md",
     "template/numeric_limits.md",
     "template/iterator_traits.md",
-    "template/char_traits.md",
-    "template/is_trivially_move_constructible.md",
     "image/OpenCL_P_8.png",
     "image/OpenCL_p_8.png",
     "image/OpenCL_P_7.png",
     "image/OpenCL_P_6.png",
     "image/OpenCL_P_5.png",
     "image/OpenCL_P_4.png",
-    "image/OpenCL_P_3.png",
     "OpenCL Руководство программиста/Code.txt",
     "OpenCL Руководство программиста",
     "template/шаблоны Дальнейшее развитие",
