@@ -10,6 +10,8 @@
 	6. [[#Накопление списков типов|Накопление списков типов]] 24.2.6
 	7. [[#Сортировка вставками|Сортировка вставками]] 24.2.7
 3. [[#Списки нетиповых параметров|Списки нетиповых параметров]] 24.3
+	1. [[#Выводимые нетиповые параметры|Выводимые нетиповые параметры]] 24.3.1
+4. [[#Оптимизация алгоритмов с помощью раскрытий пакетов|Оптимизация алгоритмов с помощью раскрытий пакетов]] 24.1
 
 
 
@@ -634,6 +636,166 @@ void testlnsertionSort()
 ```
 
 # Списки нетиповых параметров
+
+Списки типов обеспечивают возможность описания и работы с последовательностями типов с помощью богатого набора алгоритмов и операций. В некоторых случаях полезно также иметь возможность работать с последовательностями значений времени компиляции, таких как границы многомерных массивов или индексы другого списка типов.
+
+Существует несколько способов получения списков значений времени компиляции. Один простой подход включает определение шаблона класса `CTValue`, который представляет значение определенного типа в списке типов:
+```c++
+template<typename T, T Value>
+struct CTValue
+{
+	static constexpr T value = Value;
+};
+```
+
+Используя шаблон `CTValue`, можно записать список типов, содержащий несколько первых простых чисел, следующим образом:
+```c++
+using Primes = Typelist<CTValue<int, 2>, CTValue<int, 3>,
+						CTValue<int, 5>, CTValue<int, 7>,
+						CTValue<int, 11>>;
+```
+
+При таком представлении можно выполнять числовые вычисления над списком значений, например вычисление произведения этих чисел.
+
+Начнем с шаблона `MultiplyT`, который принимает два значения времени компиляции одинакового типа и производит новое значение времени компиляции, представляющее собой произведение входных значений:
+```c++
+template<typename Т, typename U>
+struct MultiplyT;
+
+template<typename Т, Т Value1, Т Value2>
+struct MultiplyT<CTValue<T, Value1>, CTValue<T, Value2>>
+{
+	public:
+		using Type = CTValue<T, Value1* Value2>;
+};
+
+template<typename T, typename U>
+using Multiply = typename MultiplyT<T, U>::Type;
+```
+
+Теперь, используя `MultiplyT`, можно записать следующее выражение, которое дает произведение всех простых чисел из списка:
+```c++
+Accumulate<Primes, MultiplyT, CTValue<int, 1>>::value
+```
+
+К сожалению, это использование `Typelist` и `CTValue` довольно многословное, в особенности если все значения принадлежат к одному и тому же типу. Мы можем оптимизировать этот частный случай путем введения шаблона псевдонима `CTTypelist`, который предоставляет гомогенный список значений, т.е. `Typelist`, содержащий `CTValue`:
+```c++
+template<typename T, T... Values>
+using CTTypelist = Typelist<CTValue<T, Values>...>;
+```
+
+Теперь можно написать эквивалентное (но гораздо более краткое) определение `Primes` с использованием `CTTypelist` следующим образом:
+```c++
+using Primes = CTTypelist<int, 2, 3, 5, 7, 11>;
+```
+
+Единственный недостаток этого подхода заключается в том, что шаблоны псевдонимов являются всего лишь псевдонимами, так что сообщения об ошибках могут в конечном итоге использовать имя базового типа списка `Typelist` типов `CTValueType`, и быть куда более подробными, чем хотелось бы. Для решения этой проблемы можно создать совершенно новый класс `Valuelist`, аналогичный списку типов, но который хранит значения непосредственно:
+```c++
+template<typename Т, Т... Values>
+struct Valuelist
+{
+};
+
+template<typename T, T... Values>
+struct IsEmpty<Valuelist<T, Values...>>
+{
+	static constexpr bool value = sizeof...(Values) == 0;
+};
+
+template<typename T, T Head, T... Tail>
+struct FrontT<Valuelist<T, Head, Tail...>>
+{
+	using Туре = CTValue<T, Head>;
+	static constexpr T value = Head;
+};
+
+template<typename T, T Head, T... Tail>
+struct PopFrontT<Valuelist<T, Head, Tail...>>
+{
+	using Type = Valuelist<T, Tail...>>
+);
+
+template<typename T, T... Values, T New>
+struct PushFrontT<Valuelist<T, Values..>>, CTValue<T, New>>
+{
+	using Type = Valuelist<T, New, Values...>>;
+};
+
+template<typename T, T... Values, T New>
+struct PushBackT<Valuelist<T, Values...>>, CTValue<T, New>>
+{
+	using Type = Valuelist<T, Values..., New>;
+};
+```
+
+Предоставляя `IsEmpty`, `FrontT`, `PopFrontT` и `PushFrontT`, мы делаем `Valuelist` корректным списком типов, который может использоваться с алгоритмами, определенными в данной главе. `PushBackT` предоставляется как специализация алгоритма для снижения стоимости этой операции во время компиляции. Например, `Valuelist` можно использовать с алгоритмом `InsertionSort`, определенным ранее:
+```c++
+template<typename Т, typename U>
+struct GreaterThanT;
+
+template<typename T, T First, T Second>
+struct GreaterThanT<CTValue<T, First>> CTValue<T, Second>>
+{
+	static constexpr bool value = First > Second;
+};
+
+void valuelisttest()
+{
+	using Integers = Valuelist<int, 6, 2, 4, 9, 5, 2, 1, 7>>
+	using Sortedlntegers = InsertionSort<integers, GreaterThanT>>
+	static_assert(std::is_same_v<SortedIntegers,
+								Valuelist<int, 9, 7, 6, 5, 4, 2, 2, 1>>,
+								"insertion sort failed");
+}
+```
+
+Обратите внимание на возможность инициализировать `CTValue` с помощью оператора литерала (`literal operator`), например, как
+```c++
+auto а = 42_с; // Инициализация а как CTValue<int,42>
+```
+
+Подробности представлены в #разделе_25_6.
+
+## Выводимые нетиповые параметры
+
+В C++17 `CTValue` можно усовершенствовать путем использования единственного выводимого нетипового параметра (записывая его как [[auto|auto]]):
+```c++
+template<auto Value>
+struct CTValue
+{
+	static constexpr auto value = Value;
+};
+```
+
+Это устраняет необходимость указывать тип для каждого применения `CTValue`, что делает его проще в использовании:
+```c++
+using Primes = Typelist<CTValue<2>, CTValue<3>, CTValue<5>,
+						CTValue<7>, CTValue<11>>;
+```
+
+To же самое может быть сделано для `Valuelist`, соответствующего стандарту C++17, но результат не обязательно будет лучше. [[Вывод аргументов шаблона#Спецификатор типа auto|пакет параметров с выведенным типом позволяет типам каждого аргумента быть различными]]:
+```c++
+template<auto... Values>
+class Valuelist { };
+int x;
+using MyValueList = Valuelist<1, 'a', true, &x>;
+```
+
+Такой гетерогенный список значений может быть полезным, но это не то же самое, что наш предыдущий список `Valuelist`, который требует, чтобы все элементы имели один и тот же тип. Хотя может потребоваться, чтобы все [[Вывод аргументов шаблона#Спецификатор типа auto|элементы имели одинаковый тип]], пустой `Valuelist<>` в обязательном порядке будет иметь не известный тип элемента.
+
+# Оптимизация алгоритмов с помощью раскрытий пакетов
+
+[[Вглубь шаблонов#Раскрытие пакета|Раскрытия пакетов]] (`pack expansions`) могут оказаться полезным механизмом для уменьшения количества работы компилятора со списками типов. Алгоритм [[transform|Transform]], естественным образом приводит к использованию раскрытия пакета, потому что применяет одну и ту же операцию для каждого из элементов списка. Это позволяет использовать специализацию алгоритма (путем частичной специализации) для [[transform|Transform]] при работе с [[typelist|Typelist]]:
+```c++
+template<typename... Elements, template<typename T> class MetaFun>
+class TransformT<Typelist<Elements...>, MetaFun, false>
+{
+	public:
+		using Type = Typelist<typename MetaFuncElements>::Type...>;
+};
+```
+
+
 
 
 
