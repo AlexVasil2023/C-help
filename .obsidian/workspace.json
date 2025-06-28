@@ -36,7 +36,7 @@
             }
           },
           {
-            "id": "8b8e988dc92a3cc4",
+            "id": "880497a3bd434ca3",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -209,12 +209,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9709916f0f1027c0",
+  "active": "880497a3bd434ca3",
   "lastOpenFiles": [
-    "template/templates.md",
-    "Кортежи.md",
-    "std/tuple (Кортежи).md",
     "Содержание.md",
+    "template/templates.md",
+    "std/tuple (Кортежи).md",
+    "template/pair.txt",
+    "Кортежи.md",
     "template/Списки типов - template.md",
     "template/typelist.md",
     "template/Метапрограммирование.md",
@@ -240,7 +241,6 @@
     "template/Concepts.md",
     "template/bidirectional_iterator_tag.md",
     "template/По значению или по ссылке.md",
-    "template/random_access_iterator_tag.md",
     "image/OpenCL_P_8.png",
     "image/OpenCL_p_8.png",
     "image/OpenCL_P_7.png",
@@ -255,7 +255,6 @@
     "template",
     "Parallel Programming/Шаблон Полусинхронная архитектура.ьв",
     "example/syscpp-master.zip",
-    "example",
-    "Parallel Programming/шаблон Объект-монитор.txt"
+    "example"
   ]
 }
