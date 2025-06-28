@@ -47,7 +47,7 @@
 > 
 > “Умные указатели” для управления ресурсами (например, [[unique_ptr|unique_ptr]] и [[shared_ptr|shared_ptr]].
 > 
-> Контейнеры специального назначения, такие как [[Array|array]], [[bitset|bitset]]  и [[tuple|tuple]].
+> Контейнеры специального назначения, такие как [[Array|array]], [[bitset|bitset]]  и [[tuple (Кортежи)|tuple (Кортежи)]].
 > 
 > Поддержка абсолютного времени и длительностей, например, [[Chrono#std chrono time_point (Моменты времени)]] и [[#std chro­no system_clock|system_clock]].
 > 
@@ -193,7 +193,7 @@ void g(vector<int>& v)
 | `<set>`           | [[set\|set]], [[multiset\|multiset]]                                                                                                                                               |
 | `<sstream>`       | [[std/sstream#istringstream\|istringstream]], [[std/sstream#ostringstream\|ostringstream]]                                                                                                 |
 | `<stdexcept>`     | length_error, out_of_range, runtime_error                                                                                                                                          |
-| `<tuple>`         | [[tuple#std tuple\|tuple]], get<>(), [[tuple#std tuple_size\|tuple_size<>]]                                                                                                        |
+| `<tuple>`         | [[tuple (Кортежи)#std tuple\|tuple]], get<>(), [[tuple (Кортежи)#std tuple_size\|tuple_size<>]]                                                                                                        |
 | `<thread>`        | [[thread\|thread]]                                                                                                                                                                 |
 | `<unordered_map>` | [[unordered_map#std unordered_map\|unordered_map]], [[unordered_multimap#unordered_multimap\|unordered_multimap]]                                                                  |
 | `<utility>`       | [[move\|move()]], [[swap\|swap()]], [[pair\|pair]]                                                                                                                                 |
