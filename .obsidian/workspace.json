@@ -49,8 +49,7 @@
               "title": "variant"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -209,10 +208,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "d67f1e99ffea7417",
   "lastOpenFiles": [
-    "std/variant.md",
     "template/templates.md",
+    "std/variant.md",
     "Содержание.md",
     "template/launder.md",
     "std/tuple (Кортежи).md",
