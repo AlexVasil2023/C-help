@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -209,11 +209,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "976cf561a50d9569",
   "lastOpenFiles": [
-    "Содержание.md",
     "template/templates.md",
     "template/Отладка шаблонов.md",
+    "Содержание.md",
+    "template/Concepts.md",
     "template/Шаблоны выражений.md",
     "template/valarray.md",
     "image/template_10.png",
@@ -242,7 +243,6 @@
     "Parallel STL/fill.md",
     "template/enable_if.md",
     "template/Семантика перемещения - Прямая передача - template.md",
-    "template/Семантика перемещения - Применение концептов для упрощения выражений enable_if - template.md",
     "image/OpenCL_P_8.png",
     "image/OpenCL_p_8.png",
     "image/OpenCL_P_7.png",
