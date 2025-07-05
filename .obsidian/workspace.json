@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -209,11 +209,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b57539faa6fde7e",
+  "active": "976cf561a50d9569",
   "lastOpenFiles": [
-    "template/Отладка шаблонов.md",
     "Содержание.md",
     "template/templates.md",
+    "template/Отладка шаблонов.md",
     "template/Concepts.md",
     "template/Шаблоны выражений.md",
     "template/valarray.md",
