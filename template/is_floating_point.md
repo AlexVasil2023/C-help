@@ -1,2 +1,13 @@
-# is_floating_point<T>
+# is_floating_point
 #is_floating_point
+
+
+
+
+
+# is_floating_point_v
+#is_floating_point_v
+
+
+
+
