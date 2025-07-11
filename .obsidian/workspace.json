@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -209,10 +209,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4b60c99379cde20e",
+  "active": "3b57539faa6fde7e",
   "lastOpenFiles": [
-    "template/templates.md",
     "template/Стандартные утилиты для работы с типами.md",
+    "template/is_copy_constructible.md",
+    "template/is_nothrow_default_constructible.md",
+    "template/is_trivially_default_constructible.md",
+    "template/is_default_constructible.md",
+    "template/is_nothrow_constructible.md",
+    "template/is_trivially_constructible.md",
+    "template/templates.md",
     "template/result_of.md",
     "template/invoke_result.md",
     "template/is_nothrow_invocable.md",
@@ -231,12 +237,6 @@
     "template/is_trivially_copyable.md",
     "template/is_trivial.md",
     "template/is_aggregate.md",
-    "template/is_volatile.md",
-    "template/is_const.md",
-    "template/is_unsigned.md",
-    "template/is_signed.md",
-    "Содержание.md",
-    "template/is_enum.md",
     "image/template_11.png",
     "image/template_10.png",
     "template/pair.txt",
