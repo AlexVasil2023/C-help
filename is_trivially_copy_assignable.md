@@ -1,0 +1,2 @@
+# is_trivially_copy_assignable
+#is_trivially_copy_assignable

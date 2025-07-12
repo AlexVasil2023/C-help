@@ -1,0 +1,2 @@
+# std::is_nothrow_copy_constructible
+#std_is_nothrow_copy_constructible

@@ -1,0 +1,2 @@
+# is_trivially_move_assignable
+#is_trivially_move_assignable

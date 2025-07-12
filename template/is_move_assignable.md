@@ -1,0 +1,2 @@
+# is_move_assignable
+#is_move_assignable
