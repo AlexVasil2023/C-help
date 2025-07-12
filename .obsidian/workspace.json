@@ -211,6 +211,8 @@
   },
   "active": "fc4c5eaa75dd9416",
   "lastOpenFiles": [
+    "template/templates.md",
+    "template/Стандартные утилиты для работы с типами.md",
     "template/is_nothrow_swappable_with.md",
     "template/is_swappable_with.md",
     "template/is_nothrow_swappable.md",
@@ -223,8 +225,6 @@
     "template/is_trivially_move_assignable.md",
     "template/is_move_assignable.md",
     "template/is_trivially_assignable.md",
-    "template/Стандартные утилиты для работы с типами.md",
-    "template/templates.md",
     "is_trivially_copy_assignable.md",
     "template/is_nothrow_copy_assignable.md",
     "template/is_nothrow_assignable.md",
