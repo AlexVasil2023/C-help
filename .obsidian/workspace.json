@@ -49,8 +49,7 @@
               "title": "Стандартные утилиты для работы с типами"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -209,13 +208,27 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fc4c5eaa75dd9416",
+  "active": "d67f1e99ffea7417",
   "lastOpenFiles": [
     "template/templates.md",
     "template/Стандартные утилиты для работы с типами.md",
+    "template/remove_all_extents.md",
+    "template/remove_extent.md",
+    "template/add_pointer.md",
+    "template/remove_pointer.md",
+    "template/add_lvalue_reference.md",
+    "template/make_unsigned.md",
+    "template/make_signed.md",
+    "template/add_cv.md",
+    "template/add_volatile.md",
+    "template/add_const.md",
+    "template/remove_cv.md",
+    "template/remove_volatile.md",
+    "template/remove_const.md",
+    "template/RemoveConst.md",
+    "Содержание.md",
     "template/is_base_of.md",
     "template/is_same.md",
-    "Содержание.md",
     "template/is_nothrow_default_constructible.md",
     "template/is_nothrow_destructible.md",
     "template/is_trivially_destructible.md",
@@ -223,20 +236,6 @@
     "template/is_nothrow_constructible.md",
     "template/is_trivially_constructible.md",
     "template/is_constructible.md",
-    "template/is_nothrow_swappable_with.md",
-    "template/is_swappable_with.md",
-    "template/is_nothrow_swappable.md",
-    "template/is_swappable.md",
-    "template/is destructible.md",
-    "template/is_nothrow_move_assignable.md",
-    "template/is_trivially_move_assignable.md",
-    "template/is_move_assignable.md",
-    "template/is_trivially_assignable.md",
-    "is_trivially_copy_assignable.md",
-    "template/is_nothrow_copy_assignable.md",
-    "template/is_nothrow_assignable.md",
-    "template/is_nothrow_move_constructible.md",
-    "template/is_nothrow_copy_constructible.md",
     "image/template_11.png",
     "image/template_10.png",
     "template/pair.txt",
