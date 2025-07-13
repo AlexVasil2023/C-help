@@ -14,31 +14,34 @@
 	1. [[#Концепты типов|Концепты типов]] 14.5.1 (STL)
 	2. [[#Концепты итераторов|Концепты итераторов]] 14.5.2 (STL)
 	3. [[#Концепты диапазонов|Концепты диапазонов]] 14.5.3 (STL)
-4. [[#концепт Arithmetic|концепт Arithmetic]]
-5. [[#концепт copyable|концепт copyable]]
-6. [[#концепт LessThanComparable|концепт LessThanComparable]]
-7. [[#концепт random_access_iterator|концепт random_access_iterator]] 
-8. [[#концепт forward_iterator|концепт forward_iterator]]
-9. [[#концепт equality_comparable|концепт equality_comparable]]
-10. [[#концепт Value_type|концепт Value_type]]
-11. [[#концепт regular|концепт regular]]
-12. [[#Базовые концепты|Базовые концепты]]
+4. [[#Концепты|Концепты]] Д (Template)
+5. 
+6. 
+7. [[#концепт Arithmetic|концепт Arithmetic]]
+8. [[#концепт copyable|концепт copyable]]
+9. [[#концепт LessThanComparable|концепт LessThanComparable]]
+10. [[#концепт random_access_iterator|концепт random_access_iterator]] 
+11. [[#концепт forward_iterator|концепт forward_iterator]]
+12. [[#концепт equality_comparable|концепт equality_comparable]]
+13. [[#концепт Value_type|концепт Value_type]]
+14. [[#концепт regular|концепт regular]]
+15. [[#Базовые концепты|Базовые концепты]]
 	1. [[#концепт DefaultConstructible]]
 	2. [[#концепт MoveConstructible]]
 	3. [[#концепт CopyConstructible]]
 	4. [[#концепт MoveAssignable]]
 	5. [[#концепт CopyAssignable]]
 	6. [[#концепт Destructible]]
-13. [[#Концепции размещения]]
+16. [[#Концепции размещения]]
 	1. [[#концепт TriviallyCopyable]]
 	2. [[#концепт TrivialType]]
 	3. [[#концепт StandardLayoutType]]
 	4. [[#концепт PODType]]
-14. [[#Library-wide]]
+17. [[#Library-wide]]
 	1. [[#концепт EqualityComparable]]
 	2. [[#концепт LessThanComparable]]
-15. [[#концепт predicate|концепт predicate]]
-16. [[#концепт invocable|концепт invocable]]
+18. [[#концепт predicate|концепт predicate]]
+19. [[#концепт invocable|концепт invocable]]
 
 # Концепт
 
@@ -670,6 +673,24 @@ ranges::for_each(aa, Sentinel<const char*>('\n'), [](const char x)
 | `contiguous_range<R>`    | `R` это диапазон, тип итератора которого удовлетворяет концепту `contiguous_iterator`    |
 
 В `<ranges>` есть еще больше концептов, но этот набор - хорошее начало. Основное использование этих концептов заключается в том, чтобы [[Concepts#Перегрузка основанная на концептах|разрешить перегрузку реализаций на основе свойств типа их входных данных]].
+
+# Концепты 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # концепт Arithmetic
 #Arithmetic
