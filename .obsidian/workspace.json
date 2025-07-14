@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -209,11 +209,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "05c9bf90ea0f5642",
+  "active": "3b57539faa6fde7e",
   "lastOpenFiles": [
+    "template/Concepts.md",
     "Содержание.md",
     "template/templates.md",
-    "template/Concepts.md",
     "template/Стандартные утилиты для работы с типами.md",
     "template/negation.md",
     "template/disjunction.md",
