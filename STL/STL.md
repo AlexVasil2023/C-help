@@ -1,4 +1,4 @@
-208
+218
 1. Основы
 	1. [[Программы - STL|Программы]] 1.2
 		1. [[Программы - STL#Hello, World!|Hello, World!]] 1.2.1
@@ -180,6 +180,10 @@
 		2. [[bitset|bitset]] 15.3.2
 		3. [[pair|Pair]] 15.3.3
 		4. [[tuple (Кортежи)|tuple]] 15.3.4
+	4. [[Умные указатели и контейнеры - STL#Альтернативы|Альтернативы]] 15.4
+		1. [[variant#variant|variant]] 15.4.1
+		2. [[optional#Optional|Optional]] 15.4.2
+		3. [[any#any|any]] 15.4.3
 
 
 

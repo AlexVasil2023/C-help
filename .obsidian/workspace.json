@@ -34,37 +34,9 @@
               "icon": "lucide-file",
               "title": "STL"
             }
-          },
-          {
-            "id": "8b51a2cdaadd8dfb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "STL/Умные указатели и контейнеры - STL.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Умные указатели и контейнеры - STL"
-            }
-          },
-          {
-            "id": "24dc0d1a0d1f986e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "std/tuple (Кортежи).md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "tuple (Кортежи)"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -223,17 +195,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "24dc0d1a0d1f986e",
+  "active": "90b196d5dfad3164",
   "lastOpenFiles": [
-    "STL/STL.md",
-    "std/tuple (Кортежи).md",
     "STL/Умные указатели и контейнеры - STL.md",
+    "Parallel STL/any.md",
     "Содержание.md",
+    "STL/STL.md",
+    "STL/optional.md",
+    "std/variant.md",
+    "std/tuple (Кортежи).md",
     "std/pair.md",
     "STL/equal_range.md",
     "std/range.md",
     "STL/bitset.md",
-    "Parallel STL/any.md",
     "STL/all.md",
     "Meyers Effective modern c++/auto.md",
     "STL/Программы - STL.md",
@@ -250,8 +224,6 @@
     "template/templates.md",
     "template/Concepts.md",
     "template/advance.md",
-    "template/Стандартные утилиты для работы с типами.md",
-    "template/negation.md",
     "image/template_11.png",
     "image/template_10.png",
     "template/pair.txt",
