@@ -49,7 +49,8 @@
               "title": "Утилиты-STL"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -208,12 +209,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d67f1e99ffea7417",
+  "active": "c82b472d9ea886d9",
   "lastOpenFiles": [
     "STL/STL.md",
+    "Содержание.md",
     "STL/Утилиты-STL.md",
     "template/is_iterator.md",
-    "Содержание.md",
     "STL/Концепты и обобщенное программирование - STL.md",
     "std/function.md",
     "STL/mem_fn.md",
