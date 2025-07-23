@@ -36,7 +36,7 @@
             }
           },
           {
-            "id": "0bfed06faa59edb2",
+            "id": "c82b472d9ea886d9",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -49,8 +49,7 @@
               "title": "Утилиты-STL"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -209,11 +208,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "90b196d5dfad3164",
+  "active": "d67f1e99ffea7417",
   "lastOpenFiles": [
-    "STL/Утилиты-STL.md",
-    "Содержание.md",
     "STL/STL.md",
+    "STL/Утилиты-STL.md",
+    "template/is_iterator.md",
+    "Содержание.md",
+    "STL/Концепты и обобщенное программирование - STL.md",
+    "std/function.md",
+    "STL/mem_fn.md",
     "std/Chrono.md",
     "STL/Умные указатели и контейнеры - STL.md",
     "Parallel STL/any.md",
@@ -234,10 +237,6 @@
     "кон.md",
     "std/span.md",
     "image/span.png",
-    "STL/Указатели.md",
-    "Meyers Effective modern c++/shared_ptr.md",
-    "Meyers Effective modern c++/unique_ptr.md",
-    "template/templates.md",
     "image/template_11.png",
     "image/template_10.png",
     "template/pair.txt",
