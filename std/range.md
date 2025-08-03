@@ -34,7 +34,7 @@ void my_sort(R& r) // modern, concept-constrained version of my_sort
 
 Диапазоны позволяют нам более точно выразить примерно 99% распространенных применений алгоритмов. В дополнение к удобству записи, диапазоны предлагают некоторые возможности для оптимизации и устраняют класс “глупых ошибок”, таких как `sort(v1.begin(), v2.end())` и `sort(v.end(), v.begin())`. Да, такие ошибки были замечены “в дикой природе”.
 
-Естественно, существуют различные типы диапазонов, соответствующие различным типам итераторов. В частности, [[#input_range|input_range]], [[#forward_range|forward_range]], [[#bidirectional_range|bidirectional_range]], [[#random_access_range|random_access_range]] и [[#contiguous_range|contiguous_range]] представлены как концепты ( #§14_5).
+Естественно, существуют различные типы диапазонов, соответствующие различным типам итераторов. В частности, [[#input_range|input_range]], [[#forward_range|forward_range]], [[#bidirectional_range|bidirectional_range]], [[#random_access_range|random_access_range]] и [[#contiguous_range|contiguous_range]] представлены как концепты.
 
 # Представления
 

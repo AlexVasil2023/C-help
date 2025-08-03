@@ -44,15 +44,15 @@ Target to(Source arg) // convert Source to Target
 }
 ```
 
-Аргумент шаблона функции должен быть явно указан только в том случае, если он не может быть выведен или если значение по умолчанию отсутствует ( #§8_2_4), поэтому мы можем написать:
+Аргумент шаблона функции должен быть явно указан только в том случае, если он не может быть выведен или если значение по умолчанию отсутствует, поэтому мы можем написать:
 ```c++
 auto x1 = to<string, double>(1.2); // very explicit (and verbose)
-auto x2 = to<string>(1.2);         // Source is deduced to double
-auto x3 = to<>(1.2);               // Target is defaulted to string; Source 
-								   // is deduced to double
-auto x4 = to(1.2);                 // the <> is redundant;
-								   // Target is defaulted to string; Source 
-								   // is deduced to double
+auto x2 = to<string>(1.2);      // Source is deduced to double
+auto x3 = to<>(1.2);            // Target is defaulted to string; Source 
+								// is deduced to double
+auto x4 = to(1.2);              // the <> is redundant;
+								// Target is defaulted to string; Source 
+								// is deduced to double
 ```
 
 Если все аргументы шаблона функции заданы по умолчанию, угловые скобки `<>` можно опустить.
