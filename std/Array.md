@@ -14,8 +14,8 @@ for (int& x : a)
 ```
 
 # valarray
-#valarray
 
+[[valarray|см. valarray]]
 
 # Array
 

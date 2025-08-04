@@ -9,7 +9,8 @@
 #std_invoke
 
 # std::invoke_result
-#std_invoke_result
+
+[[invoke_result|см. invoke_result]]
 
 # std::invoke C++17
 #std_invoke

@@ -4,22 +4,7 @@
 
 
 # std::unordered_multimap
-#unordered_multimap
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[[unordered_multimap|см. std::unordered_multimap]]
 
 

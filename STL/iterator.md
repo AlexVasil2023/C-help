@@ -258,7 +258,8 @@ int main()
 #forward_iterator
 
 # random_access_iterator
-#random_access_iterator
+
+[[Concepts#концепт random_access_iterator| см. концепт random_access_iterator]]
 
 
 

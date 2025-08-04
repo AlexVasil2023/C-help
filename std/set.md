@@ -7,17 +7,8 @@
 
 
 # std::unordered_set<>
-#std_unordered_set
 
-
-
-
-
-
-
-
-
-
+[[unordered_set|см. std::unordered_set<>]]
 
 
 
