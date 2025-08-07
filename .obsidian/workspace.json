@@ -22,17 +22,17 @@
             }
           },
           {
-            "id": "23656a8c6465b286",
+            "id": "cf016e1cc1c3f1e8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "template/declval.md",
+                "file": "practice of multithreaded programming/Практика многопоточного программирования.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "declval"
+              "title": "Практика многопоточного программирования"
             }
           }
         ],
@@ -196,8 +196,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ba8d490f7416cc7c",
+  "active": "cf016e1cc1c3f1e8",
   "lastOpenFiles": [
+    "image/practice_multithreaded-3.png",
+    "Содержание.md",
+    "practice of multithreaded programming/Практика многопоточного программирования.md",
+    "image/practice_multithreaded-2.png",
+    "image/practice_multithreaded-1.png",
+    "template/templates.md",
+    "STL/STL.md",
+    "practice of multithreaded programming",
+    "Практика многопоточного программирования",
+    "template/declval.md",
     "std/Chrono.md",
     "template/alignment_of.md",
     "std/range.md",
@@ -218,12 +228,6 @@
     "OpenCL/OpenCL Определение наличия платформ и устройств.md",
     "STL/bit_cast.md",
     "func/ceil.md",
-    "func/beta.md",
-    "std/string.md",
-    "std/stream.md",
-    "func/asin.md",
-    "STL/inline.md",
-    "STL/alignof.md",
     "image/stl_18.png",
     "STL/Параллелизм-stl.txt",
     "func",
@@ -235,14 +239,10 @@
     "image/template_8.png",
     "image/template_7.png",
     "image/template_6.png",
-    "image/OpenCL_P_8.png",
-    "image/OpenCL_p_8.png",
     "OpenCL Руководство программиста/Code.txt",
     "OpenCL Руководство программиста",
     "template/шаблоны Дальнейшее развитие",
     "template/gl-значение.ьв",
-    "template/Семантика перемещения - .txt",
-    "template",
-    "Parallel Programming/Шаблон Полусинхронная архитектура.ьв"
+    "template/Семантика перемещения - .txt"
   ]
 }
