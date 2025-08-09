@@ -22,7 +22,7 @@
             }
           },
           {
-            "id": "cf016e1cc1c3f1e8",
+            "id": "6c29628d1b095a2e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -89,8 +89,7 @@
               "title": "Закладки"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -196,11 +195,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cf016e1cc1c3f1e8",
+  "active": "6c29628d1b095a2e",
   "lastOpenFiles": [
-    "image/practice_multithreaded-3.png",
     "Содержание.md",
     "practice of multithreaded programming/Практика многопоточного программирования.md",
+    "image/practice_multithreaded-4.png",
+    "image/practice_multithreaded-3.png",
     "image/practice_multithreaded-2.png",
     "image/practice_multithreaded-1.png",
     "template/templates.md",
@@ -237,8 +237,6 @@
     "template/pair.txt",
     "image/template_9.png",
     "image/template_8.png",
-    "image/template_7.png",
-    "image/template_6.png",
     "OpenCL Руководство программиста/Code.txt",
     "OpenCL Руководство программиста",
     "template/шаблоны Дальнейшее развитие",
