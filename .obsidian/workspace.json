@@ -50,7 +50,7 @@
             }
           },
           {
-            "id": "8feba921718a78e5",
+            "id": "d79c32992fbe6990",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -223,12 +223,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8feba921718a78e5",
+  "active": "d79c32992fbe6990",
   "lastOpenFiles": [
     "practice of multithreaded programming/Практика многопоточного программирования.md",
-    "Содержание.md",
-    "practice of multithreaded programming/управление потоками.md",
     "Parallel Programming/thread.md",
+    "STL/ref.md",
+    "bind.md",
+    "template/r-значение.md",
+    "Meyers Effective modern c++/rvalue.md",
+    "practice of multithreaded programming/управление потоками.md",
+    "Содержание.md",
     "STL/try.md",
     "image/practice_multithreaded-6.png",
     "image/practice_multithreaded-5.png",
@@ -245,7 +249,6 @@
     "template/alignment_of.md",
     "std/range.md",
     "STL/ListView.md",
-    "template/r-значение.md",
     "STL/iterator.md",
     "template/is_void.md",
     "std/ifs.md",
@@ -256,9 +259,6 @@
     "STL/dynamic_cast.md",
     "Algoritm/draw_all.md",
     "STL/delete.md",
-    "Parallel Programming/atomic.md",
-    "std/complex.md",
-    "OpenCL/OpenCL Определение наличия платформ и устройств.md",
     "image/stl_18.png",
     "STL/Параллелизм-stl.txt",
     "func",
