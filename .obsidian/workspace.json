@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -96,7 +96,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#std_declval",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -117,7 +117,8 @@
               "title": "Закладки"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -223,16 +224,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d79c32992fbe6990",
+  "active": "6c29628d1b095a2e",
   "lastOpenFiles": [
-    "practice of multithreaded programming/Практика многопоточного программирования.md",
     "Parallel Programming/thread.md",
+    "practice of multithreaded programming/управление потоками.md",
+    "Содержание.md",
+    "practice of multithreaded programming/Практика многопоточного программирования.md",
     "STL/ref.md",
     "bind.md",
     "template/r-значение.md",
     "Meyers Effective modern c++/rvalue.md",
-    "practice of multithreaded programming/управление потоками.md",
-    "Содержание.md",
     "STL/try.md",
     "image/practice_multithreaded-6.png",
     "image/practice_multithreaded-5.png",
